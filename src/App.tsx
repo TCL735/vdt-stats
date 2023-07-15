@@ -72,6 +72,12 @@ const dayTrips = [
 export const App = () => {
   const {classes} = useStyles()
   const option: EChartsOption = {
+    title: {
+      left: 150,
+      height: 100,
+      show: true,
+      text: "Vegas Daytripper's 2023 Win/Loss",
+    },
     axisPointer: {
       triggerTooltip: true,
     },
