@@ -1,5 +1,6 @@
 {
   "name": "vdt-stats",
+  "homepage": "https://vegasdaytripper.com/vdt-stats",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
