@@ -30,7 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "echo vegasdaytripper.com > ./build/CNAME && gh-pages -b main -d build",
+    "deploy": "echo vegasdaytripper.com > ./build/CNAME && gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
