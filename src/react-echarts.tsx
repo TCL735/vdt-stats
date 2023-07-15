@@ -10,6 +10,7 @@ import {
   ScatterSeriesOption,
 } from 'echarts/charts'
 import {
+  DataZoomComponentOption,
   DataZoomInsideComponent,
   DataZoomSliderComponent,
   DatasetComponent,
@@ -18,13 +19,13 @@ import {
   GridComponentOption,
   LegendComponent,
   LegendComponentOption,
+  MarkAreaComponent,
+  MarkPointComponent,
+  TitleComponent,
   ToolboxComponent,
   TooltipComponent,
-  MarkAreaComponent,
   TooltipComponentOption,
   TransformComponent,
-  DataZoomComponentOption,
-  MarkPointComponent,
 } from 'echarts/components'
 import type {ComposeOption, ECharts, SetOptionOpts} from 'echarts/core'
 import {getInstanceByDom, init, registerLayout, use} from 'echarts/core'
@@ -50,21 +51,22 @@ export const graphColours = [
 use([
   BarChart,
   CanvasRenderer,
-  SVGRenderer,
+  CustomChart,
+  DataZoomInsideComponent,
+  DataZoomSliderComponent,
   DatasetComponent,
   GridComponent,
   LabelLayout,
-  CustomChart,
   LegendComponent,
   LineChart,
-  ScatterChart,
-  TooltipComponent,
   MarkAreaComponent,
   MarkPointComponent,
+  SVGRenderer,
+  ScatterChart,
+  TitleComponent,
   ToolboxComponent,
+  TooltipComponent,
   TransformComponent,
-  DataZoomInsideComponent,
-  DataZoomSliderComponent,
 ])
 
 export type EChartsOption = ComposeOption<
