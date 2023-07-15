@@ -20,7 +20,6 @@
     "@types/react-dom": "^18.2.7",
     "dayjs": "^1.11.9",
     "echarts": "^5.4.2",
-    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -52,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
