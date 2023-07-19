@@ -1,73 +1,15 @@
 import React from 'react'
-import {Box, createStyles} from '@mantine/core'
+import {Box} from '@mantine/core'
 import dayjs from 'dayjs'
 import './App.css'
+import {dayTrips} from './data'
+import {useStyles} from './hooks'
 import {EChartsOption, ReactECharts} from './react-echarts'
-
-const useStyles = createStyles(() => ({
-  datapointTooltip: {
-    color: 'black',
-    margin: '-1rem',
-    maxWidth: '18rem',
-    padding: '0.75rem',
-    textAlign: 'left',
-    textShadow: '1px 1px rgba(0,0,0,0.15)',
-    userSelect: 'none',
-    whiteSpace: 'pre-wrap',
-    wordBreak: 'break-all',
-  },
-  negativeCurrency: {
-    color: 'red',
-  },
-  positiveCurrency: {
-    color: 'black',
-  },
-}))
 
 const currency = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 })
-
-const ARIA = 'Aria'
-const BELLAGIO = 'Bellagio'
-const EL_CORTEZ = 'El Cortez'
-const FLAMINGO = 'Flamingo'
-const MANDALAY_BAY = 'Mandalay Bay'
-const PALAZZO = 'Palazzo'
-
-const dayTrips = [
-  ['2023-01-11', 10095.0, BELLAGIO],
-  ['2023-01-18', 585.0, MANDALAY_BAY],
-  ['2023-01-25', -9100.0, PALAZZO],
-
-  ['2023-02-08', 8225, MANDALAY_BAY],
-  ['2023-02-14', -11700.0, ARIA],
-  ['2023-02-15', -2180.0, FLAMINGO],
-  ['2023-02-21', -13400.0, PALAZZO],
-
-  ['2023-03-01', -1560.0, PALAZZO],
-  ['2023-03-15', 5100.0, ARIA],
-  ['2023-03-22', -4900.0, PALAZZO],
-  ['2023-03-29', 5100.0, BELLAGIO],
-
-  ['2023-04-05', -945.0, EL_CORTEZ],
-  ['2023-04-12', -2000.0, PALAZZO],
-  ['2023-04-13', -25000.0, PALAZZO],
-
-  ['2023-05-10', 6701.0, BELLAGIO],
-  ['2023-05-17', -14500.0, ARIA],
-  ['2023-05-24', -13700.0, PALAZZO],
-
-  ['2023-06-01', -7340.0, PALAZZO],
-  ['2023-06-07', 3200.0, ARIA],
-  ['2023-06-14', 1215.0, BELLAGIO],
-  ['2023-06-21', 13010.0, ARIA],
-  ['2023-06-27', -4570.0, PALAZZO],
-
-  ['2023-07-05', 31700.0, PALAZZO],
-  ['2023-07-12', -7400.0, ARIA],
-]
 
 export const App = () => {
   const {classes} = useStyles()
@@ -112,10 +54,10 @@ export const App = () => {
       },
     },
     xAxis: {
-      type: 'category',
+      type: 'time',
       axisLabel: {
         rotate: 45,
-        formatter: (date: string) => dayjs(date).format('MMM DD'),
+        formatter: (date: number) => dayjs(date).format('MMM DD'),
       },
     },
     yAxis: {
@@ -127,9 +69,17 @@ export const App = () => {
         formatter: (money: number) => currency.format(money),
       },
     },
+    animationDuration: dayTrips.length * 1000,
+    animationEasing: 'cubicInOut',
     series: [
       {
         type: 'line',
+        emphasis: {
+          focus: 'series',
+        },
+        labelLayout: {
+          moveOverlap: 'shiftY',
+        },
         data: dayTrips.reduce((acc, dayTrip, index) => {
           if (index > 0) {
             acc.push([
@@ -142,6 +92,7 @@ export const App = () => {
           }
           return acc
         }, [] as typeof dayTrips),
+        datasetId: 'trips',
       },
     ],
   }
@@ -149,7 +100,13 @@ export const App = () => {
   return (
     <div className="App">
       <Box h={600} mt={100}>
-        <ReactECharts option={option} renderer="canvas" />
+        <ReactECharts
+          onChartReady={(chart) => {
+            setTimeout(() => chart.setOption(option), 100)
+          }}
+          option={{...option, series: []}}
+          renderer="canvas"
+        />
       </Box>
     </div>
   )
