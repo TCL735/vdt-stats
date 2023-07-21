@@ -4,7 +4,7 @@ export const useStyles = createStyles(() => ({
   datapointTooltip: {
     color: 'black',
     margin: '-1rem',
-    maxWidth: '18rem',
+    maxWidth: '20rem',
     padding: '0.75rem',
     textAlign: 'left',
     textShadow: '1px 1px rgba(0,0,0,0.15)',
