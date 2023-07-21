@@ -39,9 +39,9 @@ export const App = () => {
             Number(dayTrips[dataIndex][1]) < 0
               ? classes.negativeCurrency
               : classes.positiveCurrency
-          }">Win/Loss: ${currency.format(
-            Number(dayTrips[dataIndex][1])
-          )}</span><br/><b class="${
+          }">Win/Loss: ${dayTrips[dataIndex][1]
+            .map((amount) => currency.format(amount))
+            .join(', ')}</span><br/><b class="${
             params[0].data[1] < 0
               ? classes.negativeCurrency
               : classes.positiveCurrency
@@ -59,6 +59,7 @@ export const App = () => {
         rotate: 45,
         formatter: (date: number) => dayjs(date).format('MMM DD'),
       },
+      boundaryGap: ['6%', '6%'],
     },
     yAxis: {
       type: 'value',
@@ -81,17 +82,24 @@ export const App = () => {
           moveOverlap: 'shiftY',
         },
         data: dayTrips.reduce((acc, dayTrip, index) => {
-          if (index > 0) {
-            acc.push([
-              dayTrip[0],
-              Number(acc[index - 1][1]) + Number(dayTrip[1]),
-              dayTrip[2],
-            ])
-          } else {
-            acc.push(dayTrip)
+          if (index === 0) {
+            return [
+              [
+                dayTrip[0],
+                dayTrip[1].reduce((sum, value) => sum + value),
+                dayTrip[2].join(', '),
+              ],
+            ]
           }
+          acc.push([
+            dayTrip[0],
+            dayTrip[1].reduce((sum, value) => sum + value) +
+              acc[acc.length - 1][1],
+            dayTrip[2].join(', '),
+          ])
+
           return acc
-        }, [] as typeof dayTrips),
+        }, [] as any),
         datasetId: 'trips',
       },
     ],
