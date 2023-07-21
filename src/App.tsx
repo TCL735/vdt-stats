@@ -36,7 +36,9 @@ export const App = () => {
           content += `<b>Date: ${dayjs(params[0].data[0]).format(
             'MMM DD, YYYY'
           )}</b><br/><span class="${
-            Number(dayTrips[dataIndex][1]) < 0
+            Number(
+              dayTrips[dataIndex][1].reduce((sum, amount) => sum + amount)
+            ) < 0
               ? classes.negativeCurrency
               : classes.positiveCurrency
           }">Win/Loss: ${dayTrips[dataIndex][1]
