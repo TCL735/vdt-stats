@@ -54,4 +54,9 @@ export const dayTrips: Array<DayTrip> = [
     [-800, 3700, -2240],
     [COSMO, ARIA, RESORTS_WORLD],
   ],
+  [
+    dayjs('2023-07-26').valueOf(),
+    [-450, -915, -7000],
+    [MANDALAY_BAY, BELLAGIO, ARIA],
+  ],
 ]
