@@ -24,6 +24,7 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
 
     case VENETIAN:
     case PALAZZO:
+    case VP:
       return 'Grazie'
 
     case COSMO:
