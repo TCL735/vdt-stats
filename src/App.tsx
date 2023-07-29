@@ -1,8 +1,8 @@
 import React from 'react'
-import {Box} from '@mantine/core'
+import {Box, Stack, Table} from '@mantine/core'
 import dayjs from 'dayjs'
 import './App.css'
-import {dayTrips} from './data'
+import {dayTrips, getRewardsProgramAbbreviation} from './data'
 import {useStyles} from './hooks'
 import {EChartsOption, ReactECharts} from './react-echarts'
 
@@ -107,17 +107,65 @@ export const App = () => {
     ],
   }
 
+  let tableWinLossTotal = 0
+  const dayTripsAsRows = dayTrips.map((dayTrip, index) => {
+    const tripNumber = index + 1
+    const date = dayjs(dayTrip[0]).format('M/DD/YYYY')
+    const locations = dayTrip[2]
+    const winLoss = dayTrip[1]
+    winLoss.forEach((winOrLoss) => (tableWinLossTotal += winOrLoss))
+    return locations.map((location, idx) => (
+      <tr key={`${location}-${date}-${idx}`}>
+        <th key={`${location}-${date}-${idx}-c1`} style={{textAlign: 'left'}}>
+          {idx === 0 ? tripNumber : ''}
+        </th>
+        <th key={`${location}-${date}-${idx}-c2`} style={{textAlign: 'left'}}>
+          {idx === 0 ? date : ''}
+        </th>
+        <th key={`${location}-${date}-${idx}-c3`} style={{textAlign: 'left'}}>
+          {getRewardsProgramAbbreviation(location)}
+        </th>
+        <th key={`${location}-${date}-${idx}-c4`} style={{textAlign: 'right'}}>
+          {winLoss[idx]}
+        </th>
+      </tr>
+    ))
+  })
+
   return (
     <div className="App">
-      <Box h={600} mt={100}>
-        <ReactECharts
-          onChartReady={(chart) => {
-            setTimeout(() => chart.setOption(option), 100)
-          }}
-          option={{...option, series: []}}
-          renderer="canvas"
-        />
-      </Box>
+      <Stack>
+        <Box h={600} mt={100}>
+          <ReactECharts
+            onChartReady={(chart) => {
+              setTimeout(() => chart.setOption(option), 100)
+            }}
+            option={{...option, series: []}}
+            renderer="canvas"
+          />
+        </Box>
+        <Table mt={50} mb={100} ml={100} maw={400}>
+          <thead>
+            <tr>
+              <th key="h1">Trip</th>
+              <th key="h2">Date</th>
+              <th key="h3">Program</th>
+              <th key="h4" style={{textAlign: 'right'}}>
+                Win/Loss
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {dayTripsAsRows}
+            <tr>
+              <th></th>
+              <th>Total</th>
+              <th></th>
+              <th style={{textAlign: 'right'}}>{tableWinLossTotal}</th>
+            </tr>
+          </tbody>
+        </Table>
+      </Stack>
     </div>
   )
 }

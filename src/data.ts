@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 
 export const ARIA = 'Aria'
 export const BELLAGIO = 'Bellagio'
+export const CET = 'CET'
 export const CIRCA_AND_D = 'Cira and D'
 export const COSMO = 'Cosmopolitan'
 export const EL_CORTEZ = 'El Cortez'
@@ -13,6 +14,32 @@ export const RESORTS_WORLD = 'Resorts World'
 export const VENETIAN = 'Venetian'
 export const VP = 'V/P'
 
+export const getRewardsProgramAbbreviation = (location: string): string => {
+  switch (location) {
+    case ARIA:
+    case BELLAGIO:
+    case MANDALAY_BAY:
+    case MGM:
+      return MGM
+
+    case VENETIAN:
+    case PALAZZO:
+      return 'Grazie'
+
+    case COSMO:
+      return 'Identity'
+
+    case CIRCA_AND_D:
+      return 'One'
+
+    case RESORTS_WORLD:
+      return 'Genting'
+
+    default:
+      return location
+  }
+}
+
 export type DayTrip = [number, Array<number>, Array<string>]
 export const dayTrips: Array<DayTrip> = [
   [dayjs('2023-01-11').valueOf(), [10095], [BELLAGIO]],
@@ -21,7 +48,7 @@ export const dayTrips: Array<DayTrip> = [
 
   [dayjs('2023-02-08').valueOf(), [9575, -1350], [MANDALAY_BAY, VP]],
   [dayjs('2023-02-14').valueOf(), [-11700], [ARIA]],
-  [dayjs('2023-02-15').valueOf(), [-980, -1200], [MGM, VP]],
+  [dayjs('2023-02-15').valueOf(), [0, -980, -1200], [CET, MGM, VP]],
   [dayjs('2023-02-21').valueOf(), [-13400], [PALAZZO]],
 
   [dayjs('2023-03-01').valueOf(), [-100, -1460], [PALAZZO, MGM]],
@@ -41,7 +68,7 @@ export const dayTrips: Array<DayTrip> = [
   [dayjs('2023-05-17').valueOf(), [-14500], [ARIA]],
   [dayjs('2023-05-24').valueOf(), [-13700], [PALAZZO]],
 
-  [dayjs('2023-06-01').valueOf(), [-7340], [PALAZZO]],
+  [dayjs('2023-06-01').valueOf(), [-4000, -2040, -1300], [PALAZZO, MGM, MGM]],
   [dayjs('2023-06-07').valueOf(), [3200], [ARIA]],
   [dayjs('2023-06-14').valueOf(), [1215], [BELLAGIO]],
   [dayjs('2023-06-21').valueOf(), [13010], [ARIA]],
