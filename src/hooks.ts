@@ -13,9 +13,9 @@ export const useStyles = createStyles(() => ({
     wordBreak: 'break-all',
   },
   negativeCurrency: {
-    color: 'red',
+    color: 'red !important',
   },
   positiveCurrency: {
-    color: 'black',
+    color: 'black !important',
   },
 }))

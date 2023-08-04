@@ -9,6 +9,7 @@ export const EL_CORTEZ = 'El Cortez'
 export const FLAMINGO = 'Flamingo'
 export const MANDALAY_BAY = 'Mandalay Bay'
 export const MGM = 'MGM'
+export const MIRAGE = 'Mirage'
 export const PALAZZO = 'Palazzo'
 export const RESORTS_WORLD = 'Resorts World'
 export const VENETIAN = 'Venetian'
@@ -35,6 +36,9 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
 
     case RESORTS_WORLD:
       return 'Genting'
+
+    case MIRAGE:
+      return 'Unity'
 
     default:
       return location
@@ -87,4 +91,5 @@ export const dayTrips: Array<DayTrip> = [
     [-450, -915, -7000],
     [MANDALAY_BAY, BELLAGIO, ARIA],
   ],
+  [dayjs('2023-08-03').valueOf(), [7080, 1560], [PALAZZO, MIRAGE]],
 ]
