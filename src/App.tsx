@@ -116,18 +116,26 @@ export const App = () => {
     winLoss.forEach((winOrLoss) => (tableWinLossTotal += winOrLoss))
     return locations.map((location, idx) => (
       <tr key={`${location}-${date}-${idx}`}>
-        <th key={`${location}-${date}-${idx}-c1`} style={{textAlign: 'left'}}>
+        <td key={`${location}-${date}-${idx}-c1`} style={{textAlign: 'left'}}>
           {idx === 0 ? tripNumber : ''}
-        </th>
-        <th key={`${location}-${date}-${idx}-c2`} style={{textAlign: 'left'}}>
+        </td>
+        <td key={`${location}-${date}-${idx}-c2`} style={{textAlign: 'left'}}>
           {idx === 0 ? date : ''}
-        </th>
-        <th key={`${location}-${date}-${idx}-c3`} style={{textAlign: 'left'}}>
+        </td>
+        <td key={`${location}-${date}-${idx}-c3`} style={{textAlign: 'left'}}>
           {getRewardsProgramAbbreviation(location)}
-        </th>
-        <th key={`${location}-${date}-${idx}-c4`} style={{textAlign: 'right'}}>
+        </td>
+        <td
+          key={`${location}-${date}-${idx}-c4`}
+          style={{textAlign: 'right'}}
+          className={
+            winLoss[idx] < 0
+              ? classes.negativeCurrency
+              : classes.positiveCurrency
+          }
+        >
           {winLoss[idx]}
-        </th>
+        </td>
       </tr>
     ))
   })
@@ -158,10 +166,22 @@ export const App = () => {
           <tbody>
             {dayTripsAsRows}
             <tr>
-              <th></th>
-              <th>Total</th>
-              <th></th>
-              <th style={{textAlign: 'right'}}>{tableWinLossTotal}</th>
+              <td style={{borderTopColor: 'black'}}></td>
+              <th style={{borderTopColor: 'black'}}>Total</th>
+              <td style={{borderTopColor: 'black'}}></td>
+              <th
+                style={{
+                  textAlign: 'right',
+                  borderTopColor: 'black',
+                }}
+                className={
+                  tableWinLossTotal < 0
+                    ? classes.negativeCurrency
+                    : classes.positiveCurrency
+                }
+              >
+                {currency.format(tableWinLossTotal)}
+              </th>
             </tr>
           </tbody>
         </Table>
