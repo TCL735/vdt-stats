@@ -6,6 +6,7 @@ export const CET = 'CET'
 export const CIRCA_AND_D = 'Cira and D'
 export const COSMO = 'Cosmopolitan'
 export const EL_CORTEZ = 'El Cortez'
+export const ENCORE = 'Encore'
 export const FLAMINGO = 'Flamingo'
 export const MANDALAY_BAY = 'Mandalay Bay'
 export const MGM = 'MGM'
@@ -14,6 +15,7 @@ export const PALAZZO = 'Palazzo'
 export const RESORTS_WORLD = 'Resorts World'
 export const VENETIAN = 'Venetian'
 export const VP = 'V/P'
+export const WYNN = 'Wynn'
 
 export const getRewardsProgramAbbreviation = (location: string): string => {
   switch (location) {
@@ -39,6 +41,10 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
 
     case MIRAGE:
       return 'Unity'
+
+    case ENCORE:
+    case WYNN:
+      return 'Wynn'
 
     default:
       return location
@@ -92,4 +98,5 @@ export const dayTrips: Array<DayTrip> = [
     [MANDALAY_BAY, BELLAGIO, ARIA],
   ],
   [dayjs('2023-08-03').valueOf(), [7080, 1560], [PALAZZO, MIRAGE]],
+  [dayjs('2023-08-09').valueOf(), [4100, 880], [VP, WYNN]],
 ]
