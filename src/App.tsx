@@ -165,7 +165,6 @@ export const App = () => {
             </tr>
           </thead>
           <tbody>
-            {dayTripsAsRows.reverse()}
             <tr>
               <td style={{borderTopColor: 'black'}}></td>
               <th style={{borderTopColor: 'black'}}>Total</th>
@@ -184,6 +183,7 @@ export const App = () => {
                 {currency.format(tableWinLossTotal)}
               </th>
             </tr>
+            {dayTripsAsRows.reverse()}
           </tbody>
         </Table>
       </Stack>
