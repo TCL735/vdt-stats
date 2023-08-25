@@ -108,6 +108,7 @@ export const App = () => {
   }
 
   let tableWinLossTotal = 0
+
   const dayTripsAsRows = dayTrips.map((dayTrip, index) => {
     const tripNumber = index + 1
     const date = dayjs(dayTrip[0]).format('M/DD/YYYY')
@@ -164,7 +165,7 @@ export const App = () => {
             </tr>
           </thead>
           <tbody>
-            {dayTripsAsRows}
+            {dayTripsAsRows.reverse()}
             <tr>
               <td style={{borderTopColor: 'black'}}></td>
               <th style={{borderTopColor: 'black'}}>Total</th>
