@@ -167,8 +167,8 @@ export const App = () => {
           <tbody>
             <tr>
               <td style={{borderTopColor: 'black'}}></td>
-              <th style={{borderTopColor: 'black'}}>Total</th>
               <td style={{borderTopColor: 'black'}}></td>
+              <th style={{borderTopColor: 'black'}}>Total</th>
               <th
                 style={{
                   textAlign: 'right',
