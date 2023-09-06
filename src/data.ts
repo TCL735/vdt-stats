@@ -12,6 +12,7 @@ export const MANDALAY_BAY = 'Mandalay Bay'
 export const MGM = 'MGM'
 export const MIRAGE = 'Mirage'
 export const PALAZZO = 'Palazzo'
+export const PARK_MGM = 'Park MGM'
 export const RESORTS_WORLD = 'Resorts World'
 export const VENETIAN = 'Venetian'
 export const VP = 'V/P'
@@ -23,6 +24,7 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
     case BELLAGIO:
     case MANDALAY_BAY:
     case MGM:
+    case PARK_MGM:
       return MGM
 
     case VENETIAN:
@@ -100,4 +102,10 @@ export const dayTrips: Array<DayTrip> = [
   [dayjs('2023-08-03').valueOf(), [7080, 1560], [PALAZZO, MIRAGE]],
   [dayjs('2023-08-09').valueOf(), [4100, 880], [VP, WYNN]],
   [dayjs('2023-08-23').valueOf(), [515, 8240], [BELLAGIO, COSMO]],
+  [
+    dayjs('2023-08-31').valueOf(),
+    [-10000, -5500, -5000, -8000],
+    [VP, BELLAGIO, ARIA, MANDALAY_BAY],
+  ],
+  [dayjs('2023-09-05').valueOf(), [7175, 1870], [BELLAGIO, PARK_MGM]],
 ]
