@@ -26,6 +26,7 @@ import {
   TooltipComponent,
   TooltipComponentOption,
   TransformComponent,
+  VisualMapComponent,
 } from 'echarts/components'
 import type {ComposeOption, ECharts, SetOptionOpts} from 'echarts/core'
 import {getInstanceByDom, init, registerLayout, use} from 'echarts/core'
@@ -67,6 +68,7 @@ use([
   ToolboxComponent,
   TooltipComponent,
   TransformComponent,
+  VisualMapComponent,
 ])
 
 export type EChartsOption = ComposeOption<

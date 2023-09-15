@@ -83,6 +83,17 @@ export const App = () => {
         labelLayout: {
           moveOverlap: 'shiftY',
         },
+        endLabel: {
+          show: true,
+          // @ts-ignore
+          formatter: (params: any) => {
+            console.log('params', params)
+            if (params) {
+              return `${currency.format(params.value[1])}`
+            }
+            return ''
+          },
+        },
         data: dayTrips.reduce((acc, dayTrip, index) => {
           if (index === 0) {
             return [
@@ -150,6 +161,9 @@ export const App = () => {
               setTimeout(() => chart.setOption(option), 100)
             }}
             option={{...option, series: []}}
+            settings={{
+              replaceMerge: ['series'],
+            }}
             renderer="canvas"
           />
         </Box>
