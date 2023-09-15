@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 
 export const ARIA = 'Aria'
 export const BELLAGIO = 'Bellagio'
+export const CASINO_ROYALE = 'Casino Royale'
 export const CET = 'CET'
 export const CIRCA_AND_D = 'Cira and D'
 export const COSMO = 'Cosmopolitan'
@@ -47,6 +48,9 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
     case ENCORE:
     case WYNN:
       return 'Wynn'
+
+    case FLAMINGO:
+      return 'CET'
 
     default:
       return location
@@ -108,4 +112,9 @@ export const dayTrips: Array<DayTrip> = [
     [VP, BELLAGIO, ARIA, MANDALAY_BAY],
   ],
   [dayjs('2023-09-05').valueOf(), [7175, 1870], [BELLAGIO, PARK_MGM]],
+  [
+    dayjs('2023-09-13').valueOf(),
+    [-7200, -3000, -3.75],
+    [VP, FLAMINGO, CASINO_ROYALE],
+  ],
 ]
