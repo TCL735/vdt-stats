@@ -118,4 +118,5 @@ export const dayTrips: Array<DayTrip> = [
     [VP, FLAMINGO, CASINO_ROYALE],
   ],
   [dayjs('2023-09-20').valueOf(), [-4000, 4065], [MANDALAY_BAY, VP]],
+  [dayjs('2023-09-22').valueOf(), [-5000], [VP]],
 ]
