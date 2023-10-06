@@ -87,7 +87,6 @@ export const App = () => {
           show: true,
           // @ts-ignore
           formatter: (params: any) => {
-            console.log('params', params)
             if (params) {
               return `${currency.format(params.value[1])}`
             }
