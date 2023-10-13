@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 
+export const AIRPORT = 'Airport'
 export const ARIA = 'Aria'
 export const BELLAGIO = 'Bellagio'
 export const CASINO_ROYALE = 'Casino Royale'
@@ -125,4 +126,9 @@ export const dayTrips: Array<DayTrip> = [
     [ARIA, PARK_MGM, BELLAGIO],
   ],
   [dayjs('2023-10-04').valueOf(), [3685, 4425], [COSMO, BELLAGIO]],
+  [
+    dayjs('2023-10-11').valueOf(),
+    [-5000, 3890, 70],
+    [VP, MANDALAY_BAY, AIRPORT],
+  ],
 ]
