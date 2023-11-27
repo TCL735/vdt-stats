@@ -144,4 +144,5 @@ export const dayTrips: Array<DayTrip> = [
     [BELLAGIO, ARIA, MANDALAY_BAY, COSMO],
   ],
   [dayjs('2023-11-13').valueOf(), [-2700], [VP]],
+  [dayjs('2023-11-22').valueOf(), [-7300, -3699.5], [VP, BELLAGIO]],
 ]
