@@ -1,24 +1,24 @@
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
-export const AIRPORT = 'Airport'
-export const ARIA = 'Aria'
-export const BELLAGIO = 'Bellagio'
-export const CASINO_ROYALE = 'Casino Royale'
-export const CET = 'CET'
-export const CIRCA_AND_D = 'Cira and D'
-export const COSMO = 'Cosmopolitan'
-export const EL_CORTEZ = 'El Cortez'
-export const ENCORE = 'Encore'
-export const FLAMINGO = 'Flamingo'
-export const MANDALAY_BAY = 'Mandalay Bay'
-export const MGM = 'MGM'
-export const MIRAGE = 'Mirage'
-export const PALAZZO = 'Palazzo'
-export const PARK_MGM = 'Park MGM'
-export const RESORTS_WORLD = 'Resorts World'
-export const VENETIAN = 'Venetian'
-export const VP = 'V/P'
-export const WYNN = 'Wynn'
+export const AIRPORT = 'Airport';
+export const ARIA = 'Aria';
+export const BELLAGIO = 'Bellagio';
+export const CASINO_ROYALE = 'Casino Royale';
+export const CET = 'CET';
+export const CIRCA_AND_D = 'Cira and D';
+export const COSMO = 'Cosmopolitan';
+export const EL_CORTEZ = 'El Cortez';
+export const ENCORE = 'Encore';
+export const FLAMINGO = 'Flamingo';
+export const MANDALAY_BAY = 'Mandalay Bay';
+export const MGM = 'MGM';
+export const MIRAGE = 'Mirage';
+export const PALAZZO = 'Palazzo';
+export const PARK_MGM = 'Park MGM';
+export const RESORTS_WORLD = 'Resorts World';
+export const VENETIAN = 'Venetian';
+export const VP = 'V/P';
+export const WYNN = 'Wynn';
 
 export const getRewardsProgramAbbreviation = (location: string): string => {
   switch (location) {
@@ -27,38 +27,38 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
     case MANDALAY_BAY:
     case MGM:
     case PARK_MGM:
-      return MGM
+      return MGM;
 
     case VENETIAN:
     case PALAZZO:
     case VP:
-      return 'Grazie'
+      return 'Grazie';
 
     case COSMO:
-      return 'Identity'
+      return 'Identity';
 
     case CIRCA_AND_D:
-      return 'One'
+      return 'One';
 
     case RESORTS_WORLD:
-      return 'Genting'
+      return 'Genting';
 
     case MIRAGE:
-      return 'Unity'
+      return 'Unity';
 
     case ENCORE:
     case WYNN:
-      return 'Wynn'
+      return 'Wynn';
 
     case FLAMINGO:
-      return 'CET'
+      return 'CET';
 
     default:
-      return location
+      return location;
   }
-}
+};
 
-export type DayTrip = [number, Array<number>, Array<string>]
+export type DayTrip = [number, Array<number>, Array<string>];
 export const dayTrips: Array<DayTrip> = [
   [dayjs('2023-01-11').valueOf(), [10095], [BELLAGIO]],
   [dayjs('2023-01-18').valueOf(), [585], [MANDALAY_BAY]],
@@ -152,4 +152,5 @@ export const dayTrips: Array<DayTrip> = [
   ],
   [dayjs('2023-12-06').valueOf(), [-8150, 150], [MGM, VENETIAN]],
   [dayjs('2023-12-13').valueOf(), [-5000], [BELLAGIO]],
-]
+  [dayjs('2023-12-20').valueOf(), [395, -50], [VENETIAN, AIRPORT]],
+];
