@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 
 export const AIRPORT = 'Airport';
 export const ARIA = 'Aria';
+export const ARIA_AND_BELLAGIO = 'Aria & Bellagio';
 export const BELLAGIO = 'Bellagio';
 export const CASINO_ROYALE = 'Casino Royale';
 export const CET = 'CET';
@@ -23,6 +24,7 @@ export const WYNN = 'Wynn';
 export const getRewardsProgramAbbreviation = (location: string): string => {
   switch (location) {
     case ARIA:
+    case ARIA_AND_BELLAGIO:
     case BELLAGIO:
     case MANDALAY_BAY:
     case MGM:
@@ -59,7 +61,7 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
 };
 
 export type DayTrip = [number, Array<number>, Array<string>];
-export const dayTrips: Array<DayTrip> = [
+export const dayTrips2023: Array<DayTrip> = [
   [dayjs('2023-01-11').valueOf(), [10095], [BELLAGIO]],
   [dayjs('2023-01-18').valueOf(), [585], [MANDALAY_BAY]],
   [dayjs('2023-01-25').valueOf(), [-9100], [PALAZZO]],
@@ -153,4 +155,8 @@ export const dayTrips: Array<DayTrip> = [
   [dayjs('2023-12-06').valueOf(), [-8150, 150], [MGM, VENETIAN]],
   [dayjs('2023-12-13').valueOf(), [-5000], [BELLAGIO]],
   [dayjs('2023-12-20').valueOf(), [395, -50], [VENETIAN, AIRPORT]],
+];
+
+export const dayTrips2024: Array<DayTrip> = [
+  [dayjs('2024-01-02').valueOf(), [-5320], [ARIA_AND_BELLAGIO]],
 ];
