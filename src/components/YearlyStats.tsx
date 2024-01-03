@@ -13,7 +13,7 @@ const currency = new Intl.NumberFormat('en-US', {
 interface YearlyStatsProps {
   label: string;
   lineColor: string;
-  yearStart: string;
+  year: string | null;
   dayTrips: Array<DayTrip>;
 }
 
@@ -21,8 +21,9 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
   dayTrips,
   label,
   lineColor,
-  yearStart,
+  year,
 }) => {
+  const yearStart = year ? `${year}-01-01` : '2024-01-01';
   const {classes} = useStyles();
   const option: EChartsOption = {
     title: {
