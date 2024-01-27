@@ -18,7 +18,7 @@ export const App = () => {
           <YearlyStats
             dayTrips={dayTrips2024}
             label="Vegas Daytripper's 2024 Win/Loss"
-            lineColor="green"
+            lineColor="orange"
             year={activeTab}
           />
         </Tabs.Panel>
