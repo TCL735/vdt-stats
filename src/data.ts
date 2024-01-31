@@ -167,4 +167,5 @@ export const dayTrips2024: Array<DayTrip> = [
     [925, -4600, -4600],
     [VENETIAN, WYNN, BELLAGIO],
   ],
+  [dayjs('2024-01-30').valueOf(), [-3632], [MANDALAY_BAY]],
 ];
