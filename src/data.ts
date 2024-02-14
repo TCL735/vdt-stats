@@ -10,7 +10,9 @@ export const CIRCA_AND_D = 'Cira and D';
 export const COSMO = 'Cosmopolitan';
 export const EL_CORTEZ = 'El Cortez';
 export const ENCORE = 'Encore';
+export const EXCALIBUR = 'Excalibur';
 export const FLAMINGO = 'Flamingo';
+export const LUXOR = 'Luxor';
 export const MANDALAY_BAY = 'Mandalay Bay';
 export const MGM = 'MGM';
 export const MIRAGE = 'Mirage';
@@ -26,6 +28,8 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
     case ARIA:
     case ARIA_AND_BELLAGIO:
     case BELLAGIO:
+    case EXCALIBUR:
+    case LUXOR:
     case MANDALAY_BAY:
     case MGM:
     case PARK_MGM:
@@ -169,4 +173,9 @@ export const dayTrips2024: Array<DayTrip> = [
   ],
   [dayjs('2024-01-30').valueOf(), [-3632], [MANDALAY_BAY]],
   [dayjs('2024-02-07').valueOf(), [-5400], [COSMO]],
+  [
+    dayjs('2024-02-13').valueOf(),
+    [1395, -1400, 1750, -7890, 2880],
+    [MANDALAY_BAY, LUXOR, EXCALIBUR, BELLAGIO, BELLAGIO],
+  ],
 ];
