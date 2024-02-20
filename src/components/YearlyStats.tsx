@@ -204,7 +204,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           renderer="canvas"
         />
       </Box>
-      <Table mt={50} mb={100} ml={100} maw={400}>
+      <Table mt={50} mb={100} ml={100} maw={500}>
         <thead>
           <tr>
             <th key="h1">Trip</th>
