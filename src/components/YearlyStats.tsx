@@ -60,24 +60,26 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
                   amount < 0
                     ? classes.negativeCurrency
                     : classes.positiveCurrency
-                }">${currency.format(amount)}</span>`
+                }">${currency.format(amount)}  </span>`
             )
-            .join(', ')}</span><br/><b class="${
+            .join('')}</span><br/><b class="${
             params[0].data[1] < 0
               ? classes.negativeCurrency
               : classes.positiveCurrency
           }">YTD: ${currency.format(
             params[0].data[1]
-          )}</b><br/><b>Location: ${dayTrips[dataIndex][2]
+          )}</b><br/><span>Location: ${dayTrips[dataIndex][2]
             .map(
               (location, index) =>
                 `<span class="${
                   dayTrips[dataIndex][1][index] < 0
                     ? classes.negativeCurrency
                     : classes.positiveCurrency
-                }">${location}</span>`
+                }">${location}${
+                  index < dayTrips[dataIndex][2].length - 1 ? ', ' : ''
+                }</span>`
             )
-            .join(', ')}</b>`;
+            .join('')}</span>`;
         }
         content += '</div>';
         return content;
