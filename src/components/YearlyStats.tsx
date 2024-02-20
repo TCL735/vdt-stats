@@ -54,14 +54,30 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
               ? classes.negativeCurrency
               : classes.positiveCurrency
           }">Win/Loss: ${dayTrips[dataIndex][1]
-            .map((amount) => currency.format(amount))
+            .map(
+              (amount) =>
+                `<span class="${
+                  amount < 0
+                    ? classes.negativeCurrency
+                    : classes.positiveCurrency
+                }">${currency.format(amount)}</span>`
+            )
             .join(', ')}</span><br/><b class="${
             params[0].data[1] < 0
               ? classes.negativeCurrency
               : classes.positiveCurrency
-          }">YTD: ${currency.format(params[0].data[1])}</b><br/><b>Location: ${
-            params[0].data[2]
-          }</b>`;
+          }">YTD: ${currency.format(
+            params[0].data[1]
+          )}</b><br/><b>Location: ${dayTrips[dataIndex][2]
+            .map(
+              (location, index) =>
+                `<span class="${
+                  dayTrips[dataIndex][1][index] < 0
+                    ? classes.negativeCurrency
+                    : classes.positiveCurrency
+                }">${location}</span>`
+            )
+            .join(', ')}</b>`;
         }
         content += '</div>';
         return content;
@@ -154,10 +170,13 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           {idx === 0 ? date : ''}
         </td>
         <td key={`${location}-${date}-${idx}-c3`} style={{textAlign: 'left'}}>
+          {location}
+        </td>
+        <td key={`${location}-${date}-${idx}-c4`} style={{textAlign: 'left'}}>
           {getRewardsProgramAbbreviation(location)}
         </td>
         <td
-          key={`${location}-${date}-${idx}-c4`}
+          key={`${location}-${date}-${idx}-c5`}
           style={{textAlign: 'right'}}
           className={
             winLoss[idx] < 0
@@ -190,14 +209,16 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           <tr>
             <th key="h1">Trip</th>
             <th key="h2">Date</th>
-            <th key="h3">Program</th>
-            <th key="h4" style={{textAlign: 'right'}}>
+            <th key="h3">Location</th>
+            <th key="h4">Program</th>
+            <th key="h5" style={{textAlign: 'right'}}>
               Win/Loss
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td style={{borderTopColor: 'black'}}></td>
             <td style={{borderTopColor: 'black'}}></td>
             <td style={{borderTopColor: 'black'}}></td>
             <th style={{borderTopColor: 'black'}}>Total</th>
