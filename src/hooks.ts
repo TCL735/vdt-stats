@@ -1,10 +1,10 @@
-import {createStyles} from '@mantine/core'
+import {createStyles} from '@mantine/core';
 
 export const useStyles = createStyles(() => ({
   datapointTooltip: {
     color: 'black',
     margin: '-1rem',
-    maxWidth: '20rem',
+    maxWidth: '30rem',
     padding: '0.75rem',
     textAlign: 'left',
     textShadow: '1px 1px rgba(0,0,0,0.15)',
@@ -18,4 +18,4 @@ export const useStyles = createStyles(() => ({
   positiveCurrency: {
     color: 'black !important',
   },
-}))
+}));
