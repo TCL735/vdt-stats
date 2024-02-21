@@ -162,34 +162,54 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
     const date = dayjs(dayTrip[0]).format('M/DD/YYYY');
     const locations = dayTrip[2];
     const winLoss = dayTrip[1];
+    const tripColor =
+      winLoss.reduce((acc, amount) => acc + amount, 0) < 0
+        ? classes.negativeCurrency
+        : classes.positiveCurrency;
     winLoss.forEach((winOrLoss) => (tableWinLossTotal += winOrLoss));
-    return locations.map((location, idx) => (
-      <tr key={`${location}-${date}-${idx}`}>
-        <td key={`${location}-${date}-${idx}-c1`} style={{textAlign: 'left'}}>
-          {idx === 0 ? tripNumber : ''}
-        </td>
-        <td key={`${location}-${date}-${idx}-c2`} style={{textAlign: 'left'}}>
-          {idx === 0 ? date : ''}
-        </td>
-        <td key={`${location}-${date}-${idx}-c3`} style={{textAlign: 'left'}}>
-          {location}
-        </td>
-        <td key={`${location}-${date}-${idx}-c4`} style={{textAlign: 'left'}}>
-          {getRewardsProgramAbbreviation(location)}
-        </td>
-        <td
-          key={`${location}-${date}-${idx}-c5`}
-          style={{textAlign: 'right'}}
-          className={
-            winLoss[idx] < 0
-              ? classes.negativeCurrency
-              : classes.positiveCurrency
-          }
-        >
-          {winLoss[idx]}
-        </td>
-      </tr>
-    ));
+    return locations.map((location, idx) => {
+      const locationColor =
+        winLoss[idx] < 0 ? classes.negativeCurrency : classes.positiveCurrency;
+      return (
+        <tr key={`${location}-${date}-${idx}`}>
+          <td
+            key={`${location}-${date}-${idx}-c1`}
+            style={{textAlign: 'left'}}
+            className={tripColor}
+          >
+            {idx === 0 ? tripNumber : ''}
+          </td>
+          <td
+            key={`${location}-${date}-${idx}-c2`}
+            style={{textAlign: 'left'}}
+            className={tripColor}
+          >
+            {idx === 0 ? date : ''}
+          </td>
+          <td
+            key={`${location}-${date}-${idx}-c3`}
+            style={{textAlign: 'left'}}
+            className={locationColor}
+          >
+            {location}
+          </td>
+          <td
+            key={`${location}-${date}-${idx}-c4`}
+            style={{textAlign: 'left'}}
+            className={locationColor}
+          >
+            {getRewardsProgramAbbreviation(location)}
+          </td>
+          <td
+            key={`${location}-${date}-${idx}-c5`}
+            style={{textAlign: 'right'}}
+            className={locationColor}
+          >
+            {winLoss[idx]}
+          </td>
+        </tr>
+      );
+    });
   });
 
   return (
