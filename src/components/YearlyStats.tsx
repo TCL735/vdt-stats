@@ -27,7 +27,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
   const {classes} = useStyles();
   const option: EChartsOption = {
     title: {
-      left: 150,
+      left: 0,
       height: 100,
       show: true,
       text: label,
@@ -85,6 +85,10 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
         return content;
       },
     },
+    grid: {
+      left: 80,
+      right: 5,
+    },
     xAxis: {
       type: 'time',
       axisLabel: {
@@ -92,12 +96,6 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
         formatter: (date: number) => dayjs(date).format('MMM DD'),
       },
       min: (value) => dayjs(yearStart).valueOf(),
-      max: (value) => {
-        if (value.min === value.max) {
-          return value.max + 1000 * 60 * 60 * 24 * 31;
-        }
-        return value.max + 1000 * 60 * 60 * 24 * 7;
-      },
     },
     yAxis: {
       type: 'value',
@@ -130,6 +128,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
             return '';
           },
           valueAnimation: true,
+          offset: [-80, 10],
         },
         data: dayTrips.reduce((acc, dayTrip, index) => {
           if (index === 0) {
@@ -213,8 +212,8 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
   });
 
   return (
-    <Stack>
-      <Box h={600} mt={100}>
+    <Stack className="container">
+      <Box className="graph-box">
         <ReactECharts
           onChartReady={(chart) => {
             setTimeout(() => chart.setOption(option), 100);
@@ -226,7 +225,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           renderer="canvas"
         />
       </Box>
-      <Table mt={50} mb={100} ml={100} maw={500}>
+      <Table className="table">
         <thead>
           <tr>
             <th key="h1">Trip</th>

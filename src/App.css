@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin: 0 10px 0 10px;
+}
+
+.graph-box {
+  height: 620px;
+  margin-top: 20px;
+}
+
+.table {
+  max-width: 1024px;
+}
