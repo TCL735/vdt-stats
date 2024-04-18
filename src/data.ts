@@ -38,7 +38,7 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
     case VENETIAN:
     case PALAZZO:
     case VP:
-      return 'Grazie';
+      return 'Venetian Rewards';
 
     case COSMO:
       return 'Identity';
@@ -200,4 +200,5 @@ export const dayTrips2024: Array<DayTrip> = [
     [-3000, 130, 4875],
     [COSMO, BELLAGIO, MANDALAY_BAY],
   ],
+  [dayjs('2024-04-17').valueOf(), [-7100, -7000], [VENETIAN, BELLAGIO]],
 ];
