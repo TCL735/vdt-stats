@@ -207,4 +207,5 @@ export const dayTrips2024: Array<DayTrip> = [
     [-3200, -3000, 4150],
     [BELLAGIO, COSMO, MANDALAY_BAY],
   ],
+  [dayjs('2024-04-25').valueOf(), [510], [MANDALAY_BAY]],
 ];
