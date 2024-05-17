@@ -12,6 +12,7 @@ export const EL_CORTEZ = 'El Cortez';
 export const ENCORE = 'Encore';
 export const EXCALIBUR = 'Excalibur';
 export const FLAMINGO = 'Flamingo';
+export const FONTAINEBLEAU = 'Fontainebleau';
 export const LUXOR = 'Luxor';
 export const MANDALAY_BAY = 'Mandalay Bay';
 export const MGM = 'MGM';
@@ -58,6 +59,9 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
 
     case FLAMINGO:
       return 'CET';
+
+    case FONTAINEBLEAU:
+      return 'Fontainebleau Rewards';
 
     default:
       return location;
@@ -212,5 +216,10 @@ export const dayTrips2024: Array<DayTrip> = [
     dayjs('2024-05-08').valueOf(),
     [-4000, -4000, -5700],
     [ARIA, BELLAGIO, MANDALAY_BAY],
+  ],
+  [
+    dayjs('2024-05-15').valueOf(),
+    [-11000, -3000, -9000],
+    [VENETIAN, FONTAINEBLEAU, BELLAGIO],
   ],
 ];
