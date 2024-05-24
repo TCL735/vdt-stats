@@ -16,6 +16,7 @@ export const FONTAINEBLEAU = 'Fontainebleau';
 export const LUXOR = 'Luxor';
 export const MANDALAY_BAY = 'Mandalay Bay';
 export const MGM = 'MGM';
+export const MGM_GRAND = 'MGM Grand';
 export const MIRAGE = 'Mirage';
 export const PALAZZO = 'Palazzo';
 export const PARK_MGM = 'Park MGM';
@@ -33,6 +34,7 @@ export const getRewardsProgramAbbreviation = (location: string): string => {
     case LUXOR:
     case MANDALAY_BAY:
     case MGM:
+    case MGM_GRAND:
     case PARK_MGM:
       return MGM;
 
@@ -222,4 +224,5 @@ export const dayTrips2024: Array<DayTrip> = [
     [-11000, -3000, -9000],
     [VENETIAN, FONTAINEBLEAU, BELLAGIO],
   ],
+  [dayjs('2024-05-24').valueOf(), [-5200, 3675], [MANDALAY_BAY, MGM_GRAND]],
 ];
