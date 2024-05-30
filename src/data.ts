@@ -22,7 +22,7 @@ export const PALAZZO = 'Palazzo';
 export const PARK_MGM = 'Park MGM';
 export const RESORTS_WORLD = 'Resorts World';
 export const VENETIAN = 'Venetian';
-export const VP = 'V/P';
+export const VP = 'Venetian/Palazzo';
 export const WYNN = 'Wynn';
 
 export const getRewardsProgramAbbreviation = (location: string): string => {
@@ -225,4 +225,5 @@ export const dayTrips2024: Array<DayTrip> = [
     [VENETIAN, FONTAINEBLEAU, BELLAGIO],
   ],
   [dayjs('2024-05-23').valueOf(), [-5200, 3675], [MANDALAY_BAY, MGM_GRAND]],
+  [dayjs('2024-05-29').valueOf(), [-5600, 4900, -50], [VP, BELLAGIO, AIRPORT]],
 ];
