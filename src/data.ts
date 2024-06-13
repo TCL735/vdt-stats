@@ -231,4 +231,5 @@ export const dayTrips2024: Array<DayTrip> = [
     [-2425, -4550, 2650, -20],
     [ARIA, BELLAGIO, MANDALAY_BAY, AIRPORT],
   ],
+  [dayjs('2024-06-07').valueOf(), [3375], [PALAZZO]],
 ];
