@@ -1,14 +1,16 @@
 import React, {FC} from 'react';
-import {Box, Stack, Table} from '@mantine/core';
+import {Box, Stack} from '@mantine/core';
 import dayjs from 'dayjs';
-import {getRewardsProgramAbbreviation, DayTrip} from '../data';
-import {useStyles} from '../hooks';
+import {DayTrip} from '../types';
 import {EChartsOption, ReactECharts} from '../react-echarts';
-
-const currency = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
+import {TableContainer, TableColumn} from './Table';
+import {useStyles} from '../hooks';
+import {
+  createRowData,
+  currency,
+  currencyFormatter,
+  dateFormatter,
+} from '../utils';
 
 interface YearlyStatsProps {
   label: string;
@@ -154,62 +156,20 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
     ],
   };
 
-  let tableWinLossTotal = 0;
+  const {
+    wholeTripColors,
+    locationColors,
+    tripDates,
+    tripLocations,
+    tripNumbers,
+    tripPrograms,
+    tripResults,
+  } = createRowData(dayTrips);
 
-  const dayTripsAsRows = dayTrips.map((dayTrip, index) => {
-    const tripNumber = index + 1;
-    const date = dayjs(dayTrip[0]).format('M/DD/YYYY');
-    const locations = dayTrip[2];
-    const winLoss = dayTrip[1];
-    const tripColor =
-      winLoss.reduce((acc, amount) => acc + amount, 0) < 0
-        ? classes.negativeCurrency
-        : classes.positiveCurrency;
-    winLoss.forEach((winOrLoss) => (tableWinLossTotal += winOrLoss));
-    return locations.map((location, idx) => {
-      const locationColor =
-        winLoss[idx] < 0 ? classes.negativeCurrency : classes.positiveCurrency;
-      return (
-        <tr key={`${location}-${date}-${idx}`}>
-          <td
-            key={`${location}-${date}-${idx}-c1`}
-            style={{textAlign: 'left'}}
-            className={tripColor}
-          >
-            {idx === 0 ? tripNumber : ''}
-          </td>
-          <td
-            key={`${location}-${date}-${idx}-c2`}
-            style={{textAlign: 'left'}}
-            className={tripColor}
-          >
-            {idx === 0 ? date : ''}
-          </td>
-          <td
-            key={`${location}-${date}-${idx}-c3`}
-            style={{textAlign: 'left'}}
-            className={locationColor}
-          >
-            {location}
-          </td>
-          <td
-            key={`${location}-${date}-${idx}-c4`}
-            style={{textAlign: 'left'}}
-            className={locationColor}
-          >
-            {getRewardsProgramAbbreviation(location)}
-          </td>
-          <td
-            key={`${location}-${date}-${idx}-c5`}
-            style={{textAlign: 'right'}}
-            className={locationColor}
-          >
-            {winLoss[idx]}
-          </td>
-        </tr>
-      );
-    });
-  });
+  const grandTotal = tripResults.reduce(
+    (total, amount) => (total += amount),
+    0
+  );
 
   return (
     <Stack className="container">
@@ -225,41 +185,55 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           renderer="canvas"
         />
       </Box>
-      <Table className="table">
-        <thead>
-          <tr>
-            <th key="h1">Trip</th>
-            <th key="h2">Date</th>
-            <th key="h3">Location</th>
-            <th key="h4">Program</th>
-            <th key="h5" style={{textAlign: 'right'}}>
-              Win/Loss
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{borderTopColor: 'black'}}></td>
-            <td style={{borderTopColor: 'black'}}></td>
-            <td style={{borderTopColor: 'black'}}></td>
-            <th style={{borderTopColor: 'black'}}>Total</th>
-            <th
-              style={{
-                textAlign: 'right',
-                borderTopColor: 'black',
-              }}
-              className={
-                tableWinLossTotal < 0
-                  ? classes.negativeCurrency
-                  : classes.positiveCurrency
-              }
-            >
-              {currency.format(tableWinLossTotal)}
-            </th>
-          </tr>
-          {dayTripsAsRows.reverse()}
-        </tbody>
-      </Table>
+      <TableContainer>
+        <TableColumn
+          className=""
+          handleConsecutiveRepeatValueAs="last"
+          title="Trip"
+          headerRows={['']}
+          headerRowColors={['']}
+          rowData={tripNumbers}
+          rowDataColors={wholeTripColors}
+        />
+        <TableColumn
+          className=""
+          formatter={dateFormatter}
+          handleConsecutiveRepeatValueAs="last"
+          title="Date"
+          headerRows={['']}
+          headerRowColors={['']}
+          rowData={tripDates}
+          rowDataColors={wholeTripColors}
+        />
+        <TableColumn
+          className=""
+          handleConsecutiveRepeatValueAs="always"
+          title="Location"
+          headerRows={['']}
+          headerRowColors={['']}
+          rowData={tripLocations}
+          rowDataColors={locationColors}
+        />
+        <TableColumn
+          className=""
+          handleConsecutiveRepeatValueAs="always"
+          title="Program"
+          headerRows={['Total']}
+          headerRowColors={['black']}
+          rowData={tripPrograms}
+          rowDataColors={locationColors}
+        />
+        <TableColumn
+          className="currency-column"
+          formatter={currencyFormatter}
+          handleConsecutiveRepeatValueAs="always"
+          rowDataColors={locationColors}
+          title="Win/Loss"
+          headerRows={[grandTotal]}
+          headerRowColors={[grandTotal >= 0 ? 'black' : 'red']}
+          rowData={tripResults}
+        />
+      </TableContainer>
     </Stack>
   );
 };

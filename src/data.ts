@@ -1,76 +1,31 @@
 import dayjs from 'dayjs';
 
-export const AIRPORT = 'Airport';
-export const ARIA = 'Aria';
-export const ARIA_AND_BELLAGIO = 'Aria & Bellagio';
-export const BELLAGIO = 'Bellagio';
-export const CASINO_ROYALE = 'Casino Royale';
-export const CET = 'CET';
-export const CIRCA_AND_D = 'Cira and D';
-export const COSMO = 'Cosmopolitan';
-export const EL_CORTEZ = 'El Cortez';
-export const ENCORE = 'Encore';
-export const EXCALIBUR = 'Excalibur';
-export const FLAMINGO = 'Flamingo';
-export const FONTAINEBLEAU = 'Fontainebleau';
-export const LUXOR = 'Luxor';
-export const MANDALAY_BAY = 'Mandalay Bay';
-export const MGM = 'MGM';
-export const MGM_GRAND = 'MGM Grand';
-export const MIRAGE = 'Mirage';
-export const PALAZZO = 'Palazzo';
-export const PARK_MGM = 'Park MGM';
-export const RESORTS_WORLD = 'Resorts World';
-export const VENETIAN = 'Venetian';
-export const VP = 'Venetian/Palazzo';
-export const WYNN = 'Wynn';
+import {
+  AIRPORT,
+  ARIA,
+  ARIA_AND_BELLAGIO,
+  BELLAGIO,
+  CASINO_ROYALE,
+  CET,
+  CIRCA_AND_D,
+  COSMO,
+  EXCALIBUR,
+  FLAMINGO,
+  FONTAINEBLEAU,
+  LUXOR,
+  MANDALAY_BAY,
+  MGM,
+  MGM_GRAND,
+  MIRAGE,
+  PALAZZO,
+  PARK_MGM,
+  RESORTS_WORLD,
+  VENETIAN,
+  VP,
+  WYNN,
+  DayTrip,
+} from './types';
 
-export const getRewardsProgramAbbreviation = (location: string): string => {
-  switch (location) {
-    case ARIA:
-    case ARIA_AND_BELLAGIO:
-    case BELLAGIO:
-    case EXCALIBUR:
-    case LUXOR:
-    case MANDALAY_BAY:
-    case MGM:
-    case MGM_GRAND:
-    case PARK_MGM:
-      return MGM;
-
-    case VENETIAN:
-    case PALAZZO:
-    case VP:
-      return 'Venetian Rewards';
-
-    case COSMO:
-      return 'Identity';
-
-    case CIRCA_AND_D:
-      return 'One';
-
-    case RESORTS_WORLD:
-      return 'Genting';
-
-    case MIRAGE:
-      return 'Unity';
-
-    case ENCORE:
-    case WYNN:
-      return 'Wynn';
-
-    case FLAMINGO:
-      return 'CET';
-
-    case FONTAINEBLEAU:
-      return 'Fontainebleau Rewards';
-
-    default:
-      return location;
-  }
-};
-
-export type DayTrip = [number, Array<number>, Array<string>];
 export const dayTrips2023: Array<DayTrip> = [
   [dayjs('2023-01-11').valueOf(), [10095], [BELLAGIO]],
   [dayjs('2023-01-18').valueOf(), [585], [MANDALAY_BAY]],

@@ -46,6 +46,38 @@
   margin-top: 20px;
 }
 
-.table {
-  max-width: 1024px;
+.table-container {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) minmax(0, 2fr) minmax(0, 3fr) minmax(0, 4fr)
+    minmax(0, 2fr);
+  align-items: center;
+}
+
+.table-title-row,
+.table-row {
+  border-bottom: 1px solid lightgray;
+  height: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.table-title-row,
+.table-header-row {
+  font-weight: 600;
+}
+
+.table-column-stack {
+  gap: 0;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-black {
+  color: black;
 }
