@@ -130,7 +130,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
             return '';
           },
           valueAnimation: true,
-          offset: [-80, -20],
+          offset: [-80, 20],
         },
         data: dayTrips.reduce((acc, dayTrip, index) => {
           if (index === 0) {
