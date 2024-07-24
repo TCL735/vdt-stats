@@ -3,8 +3,12 @@ import {
   ARIA,
   ARIA_AND_BELLAGIO,
   BELLAGIO,
+  CAESARS_PALACE,
+  CET,
   CIRCA_AND_D,
   COSMO,
+  DURANGO,
+  DayTrip,
   ENCORE,
   EXCALIBUR,
   FLAMINGO,
@@ -15,13 +19,13 @@ import {
   MGM_GRAND,
   MIRAGE,
   PALAZZO,
+  PARIS,
   PARK_MGM,
   RESORTS_WORLD,
+  TableRowDataType,
   VENETIAN,
   VP,
   WYNN,
-  DayTrip,
-  TableRowDataType,
 } from './types';
 
 export const getRewardsProgram = (location: string): string => {
@@ -58,11 +62,16 @@ export const getRewardsProgram = (location: string): string => {
     case WYNN:
       return 'Wynn';
 
+    case PARIS:
+    case CAESARS_PALACE:
     case FLAMINGO:
-      return 'CET';
+      return CET;
 
     case FONTAINEBLEAU:
       return 'Fontainebleau Rewards';
+
+    case DURANGO:
+      return 'Stations';
 
     default:
       return location;
@@ -79,7 +88,11 @@ export interface TableRowsData {
   tripResults: number[];
 }
 
-export const createRowData = (daytrips: DayTrip[]): TableRowsData => {
+export const createRowData = (
+  daytrips: DayTrip[],
+  positiveColor = 'black',
+  negativeColor = 'red'
+): TableRowsData => {
   const wholeTripColors: string[] = [];
   const locationColors: string[] = [];
   const tripNumbers: number[] = [];
@@ -96,8 +109,8 @@ export const createRowData = (daytrips: DayTrip[]): TableRowsData => {
     }, 0);
 
     for (let i = locations.length - 1; i >= 0; i -= 1) {
-      wholeTripColors.push(resultsTotal >= 0 ? 'black' : 'red');
-      locationColors.push(results[i] >= 0 ? 'black' : 'red');
+      wholeTripColors.push(resultsTotal >= 0 ? positiveColor : negativeColor);
+      locationColors.push(results[i] >= 0 ? positiveColor : negativeColor);
       tripNumbers.push(index + 1);
       tripDates.push(dateValue);
       tripLocations.push(locations[i]);

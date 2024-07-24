@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import {DayTrip} from '../types';
 import {EChartsOption, ReactECharts} from '../react-echarts';
 import {TableContainer, TableColumn} from './Table';
-import {useStyles} from '../hooks';
+import {useTenTonStyles} from '../hooks';
 import {
   createRowData,
   currency,
@@ -12,7 +12,7 @@ import {
   dateFormatter,
 } from '../utils';
 
-interface YearlyStatsProps {
+interface TenTonStatsProps {
   label: string;
   lineColor: string;
   yearStart?: string;
@@ -20,7 +20,7 @@ interface YearlyStatsProps {
   dayTrips: Array<DayTrip>;
 }
 
-export const YearlyStats: FC<YearlyStatsProps> = ({
+export const TenTonStats: FC<TenTonStatsProps> = ({
   dayTrips,
   label,
   lineColor,
@@ -29,13 +29,16 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
     .toISOString()
     .slice(0, 10)}`,
 }) => {
-  const {classes} = useStyles();
+  const {classes} = useTenTonStyles();
   const option: EChartsOption = {
     title: {
       left: 0,
       height: 100,
       show: true,
       text: label,
+      textStyle: {
+        color: '#C48125',
+      },
     },
     axisPointer: {
       triggerTooltip: true,
@@ -99,10 +102,17 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
       axisLabel: {
         rotate: 45,
         formatter: (date: number) => dayjs(date).format('MMM DD'),
+        color: '#C48125',
       },
       axisLine: {
         lineStyle: {
-          width: 2,
+          width: 5,
+        },
+      },
+      axisTick: {
+        lineStyle: {
+          color: '#C48125',
+          width: 1,
         },
       },
       min: (value) => dayjs(yearStart).subtract(1, 'day').valueOf(),
@@ -115,6 +125,13 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
       nameGap: 100,
       axisLabel: {
         formatter: (money: number) => currency.format(money),
+        color: '#C48125',
+      },
+      splitLine: {
+        lineStyle: {
+          width: 1,
+          type: 'solid',
+        },
       },
     },
     animationDuration: dayTrips.length * 1000,
@@ -140,6 +157,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           },
           valueAnimation: true,
           offset: [-80, -20],
+          color: '#C48125',
         },
         data: dayTrips.reduce((acc, dayTrip, index) => {
           if (index === 0) {
@@ -173,7 +191,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
     tripNumbers,
     tripPrograms,
     tripResults,
-  } = createRowData(dayTrips);
+  } = createRowData(dayTrips, 'neon-green', 'pink');
 
   const grandTotal = tripResults.reduce(
     (total, amount) => (total += amount),
@@ -181,8 +199,8 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
   );
 
   return (
-    <Stack className="container">
-      <Box className="graph-box">
+    <Stack className="container ten-ton">
+      <Box className="graph-box ten-ton">
         <ReactECharts
           onChartReady={(chart) => {
             setTimeout(() => chart.setOption(option), 100);
@@ -228,7 +246,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           handleConsecutiveRepeatValueAs="always"
           title="Program"
           headerRows={['Total']}
-          headerRowColors={['black']}
+          headerRowColors={['']}
           rowData={tripPrograms}
           rowDataColors={locationColors}
         />
@@ -239,7 +257,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           rowDataColors={locationColors}
           title="Win/Loss"
           headerRows={[grandTotal]}
-          headerRowColors={[grandTotal >= 0 ? 'black' : 'red']}
+          headerRowColors={[grandTotal >= 0 ? 'neon-green' : 'pink']}
           rowData={tripResults}
         />
       </TableContainer>

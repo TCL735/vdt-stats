@@ -37,6 +37,10 @@
   }
 }
 
+.ten-ton {
+  background-color: black;
+  color: #c48125;
+}
 .container {
   margin: 0 10px 0 10px;
 }
@@ -80,4 +84,16 @@
 
 .text-black {
   color: black;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-neon-green {
+  color: #39ff14;
+}
+
+.text-pink {
+  color: pink;
 }

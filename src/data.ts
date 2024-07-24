@@ -24,6 +24,9 @@ import {
   VP,
   WYNN,
   DayTrip,
+  DURANGO,
+  CAESARS_PALACE,
+  PARIS,
 } from './types';
 
 export const dayTrips2023: Array<DayTrip> = [
@@ -206,4 +209,12 @@ export const dayTrips2024: Array<DayTrip> = [
   [dayjs('2024-07-11').valueOf(), [6000, -70], [FONTAINEBLEAU, AIRPORT]],
   [dayjs('2024-07-17').valueOf(), [-7500, -175], [WYNN, AIRPORT]],
   [dayjs('2024-07-23').valueOf(), [5500], [BELLAGIO]],
+];
+
+export const tenTon2024: Array<DayTrip> = [
+  [dayjs('2024-07-13').valueOf(), [459], [DURANGO]],
+  [dayjs('2024-07-20').valueOf(), [-225], [CAESARS_PALACE]],
+  [dayjs('2024-07-21').valueOf(), [925], [CAESARS_PALACE]],
+  [dayjs('2024-07-22').valueOf(), [21], [PARIS]],
+  [dayjs('2024-07-23').valueOf(), [-2699], [BELLAGIO]],
 ];
