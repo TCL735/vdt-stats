@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Tabs} from '@mantine/core';
-import {dayTrips2023, dayTrips2024} from './data';
+import {dayTrips2023, dayTrips2024, tenTon2024} from './data';
+import {TenTonStats} from './components/TenTonStats';
 import {YearlyStats} from './components/YearlyStats';
 
 export const App = () => {
@@ -12,6 +13,7 @@ export const App = () => {
         <Tabs.List>
           <Tabs.Tab value="2024">2024</Tabs.Tab>
           <Tabs.Tab value="2023">2023</Tabs.Tab>
+          <Tabs.Tab value="TenTon">Ten Ton Demo</Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="2024">
@@ -19,7 +21,6 @@ export const App = () => {
             dayTrips={dayTrips2024}
             label="Vegas Daytripper's 2024 Win/Loss"
             lineColor="red"
-            year={activeTab}
           />
         </Tabs.Panel>
         <Tabs.Panel value="2023">
@@ -27,7 +28,14 @@ export const App = () => {
             dayTrips={dayTrips2023}
             label="Vegas Daytripper's 2023 Win/Loss"
             lineColor="red"
-            year={activeTab}
+          />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="TenTon">
+          <TenTonStats
+            dayTrips={tenTon2024}
+            label="Ten Ton demo"
+            lineColor="pink"
           />
         </Tabs.Panel>
       </Tabs>
