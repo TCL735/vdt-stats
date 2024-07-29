@@ -24,9 +24,6 @@ import {
   VP,
   WYNN,
   DayTrip,
-  DURANGO,
-  CAESARS_PALACE,
-  PARIS,
 } from './types';
 
 export const dayTrips2023: Array<DayTrip> = [

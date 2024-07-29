@@ -12,7 +12,6 @@ export const App = () => {
         <Tabs.List>
           <Tabs.Tab value="2024">2024</Tabs.Tab>
           <Tabs.Tab value="2023">2023</Tabs.Tab>
-          <Tabs.Tab value="TenTon">Ten Ton Demo</Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="2024">
