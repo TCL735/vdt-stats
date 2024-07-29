@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Tabs} from '@mantine/core';
-import {dayTrips2023, dayTrips2024, tenTon2024} from './data';
-import {TenTonStats} from './components/TenTonStats';
+import {dayTrips2023, dayTrips2024} from './data';
 import {YearlyStats} from './components/YearlyStats';
 
 export const App = () => {
@@ -28,14 +27,6 @@ export const App = () => {
             dayTrips={dayTrips2023}
             label="Vegas Daytripper's 2023 Win/Loss"
             lineColor="red"
-          />
-        </Tabs.Panel>
-
-        <Tabs.Panel value="TenTon">
-          <TenTonStats
-            dayTrips={tenTon2024}
-            label="Ten Ton demo"
-            lineColor="pink"
           />
         </Tabs.Panel>
       </Tabs>
