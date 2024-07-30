@@ -117,6 +117,20 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
         formatter: (money: number) => currency.format(money),
       },
     },
+    visualMap: {
+      type: 'continuous',
+      show: false,
+      dimension: 1,
+      range: [1, Infinity],
+      target: {
+        inRange: {
+          color: 'black',
+        },
+        outOfRange: {
+          color: 'red',
+        },
+      },
+    },
     animationDuration: dayTrips.length * 1000,
     animationEasing: 'cubicInOut',
     series: [
