@@ -33,6 +33,7 @@ export const getRewardsProgram = (location: string): string => {
     case ARIA:
     case ARIA_AND_BELLAGIO:
     case BELLAGIO:
+    case COSMO:
     case EXCALIBUR:
     case LUXOR:
     case MANDALAY_BAY:
@@ -45,9 +46,6 @@ export const getRewardsProgram = (location: string): string => {
     case PALAZZO:
     case VP:
       return 'Venetian Rewards';
-
-    case COSMO:
-      return 'Identity';
 
     case CIRCA_AND_D:
       return 'One';
