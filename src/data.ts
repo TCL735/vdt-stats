@@ -217,4 +217,9 @@ export const dayTrips2024: Array<DayTrip> = [
     [FONTAINEBLEAU, VENETIAN, BELLAGIO],
   ],
   [dayjs('2024-08-21').valueOf(), [995], [BELLAGIO]],
+  [
+    dayjs('2024-08-23').valueOf(),
+    [-11100, 8350, -100],
+    [BELLAGIO, MANDALAY_BAY, AIRPORT],
+  ],
 ];
