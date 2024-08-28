@@ -14,20 +14,25 @@ export const App = () => {
           <Tabs.Tab value="2023">2023</Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="2024">
-          <YearlyStats
-            dayTrips={dayTrips2024}
-            label="Vegas Daytripper's 2024 Win/Loss"
-            lineColor="red"
-          />
-        </Tabs.Panel>
-        <Tabs.Panel value="2023">
-          <YearlyStats
-            dayTrips={dayTrips2023}
-            label="Vegas Daytripper's 2023 Win/Loss"
-            lineColor="red"
-          />
-        </Tabs.Panel>
+        {activeTab ? (
+          activeTab === '2024' ? (
+            <Tabs.Panel value="2024">
+              <YearlyStats
+                dayTrips={dayTrips2024}
+                label="Vegas Daytripper's 2024 Win/Loss"
+                lineColor="red"
+              />
+            </Tabs.Panel>
+          ) : (
+            <Tabs.Panel value="2023">
+              <YearlyStats
+                dayTrips={dayTrips2023}
+                label="Vegas Daytripper's 2023 Win/Loss"
+                lineColor="red"
+              />
+            </Tabs.Panel>
+          )
+        ) : null}
       </Tabs>
     </div>
   );
