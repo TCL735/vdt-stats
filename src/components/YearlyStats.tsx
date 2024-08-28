@@ -30,6 +30,32 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
     .slice(0, 10)}`,
 }) => {
   const {classes} = useStyles();
+
+  const data: Array<[number, number, string, string]> = dayTrips.reduce(
+    (acc, dayTrip, index) => {
+      const session = dayTrip[1].reduce((sum, value) => sum + value);
+      if (index === 0) {
+        return [
+          [
+            dayTrip[0],
+            session,
+            dayTrip[2].join(', '),
+            session > 0 ? 'black' : 'red',
+          ],
+        ];
+      }
+      acc.push([
+        dayTrip[0],
+        session + acc[acc.length - 1][1],
+        dayTrip[2].join(', '),
+        session > 0 ? 'black' : 'red',
+      ]);
+
+      return acc;
+    },
+    [] as any
+  );
+
   const option: EChartsOption = {
     title: {
       left: 0,
@@ -118,20 +144,27 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
       },
     },
     visualMap: {
-      type: 'continuous',
+      type: 'piecewise',
       show: false,
-      dimension: 1,
-      range: [1, Infinity],
-      target: {
-        inRange: {
-          color: 'black',
-        },
-        outOfRange: {
-          color: 'red',
-        },
-      },
+      dimension: 0,
+      pieces: data.reduce((acc, dayData, index) => {
+        if (index === 0) {
+          acc.push({
+            min: 0,
+            max: dayData[0],
+            color: dayData[3],
+          });
+        } else {
+          acc.push({
+            min: acc[acc.length - 1].max,
+            max: dayData[0],
+            color: dayData[3],
+          });
+        }
+        return acc;
+      }, [] as any),
     },
-    animationDuration: dayTrips.length * 1000,
+    animationDuration: dayTrips.length * 300,
     animationEasing: 'cubicInOut',
     series: [
       {
@@ -155,25 +188,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
           valueAnimation: true,
           offset: [-80, 20],
         },
-        data: dayTrips.reduce((acc, dayTrip, index) => {
-          if (index === 0) {
-            return [
-              [
-                dayTrip[0],
-                dayTrip[1].reduce((sum, value) => sum + value),
-                dayTrip[2].join(', '),
-              ],
-            ];
-          }
-          acc.push([
-            dayTrip[0],
-            dayTrip[1].reduce((sum, value) => sum + value) +
-              acc[acc.length - 1][1],
-            dayTrip[2].join(', '),
-          ]);
-
-          return acc;
-        }, [] as any),
+        data,
         datasetId: 'trips',
       },
     ],
