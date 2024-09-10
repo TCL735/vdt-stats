@@ -24,6 +24,7 @@ import {
   VP,
   WYNN,
   DayTrip,
+  CAESARS_PALACE,
 } from './types';
 
 export const dayTrips2023: Array<DayTrip> = [
@@ -223,4 +224,10 @@ export const dayTrips2024: Array<DayTrip> = [
     [BELLAGIO, MANDALAY_BAY, AIRPORT],
   ],
   [dayjs('2024-08-28').valueOf(), [-8300, -6900], [ARIA, MANDALAY_BAY]],
+  [dayjs('2024-09-04').valueOf(), [-2000, -1000], [BELLAGIO, CAESARS_PALACE]],
+  [
+    dayjs('2024-09-06').valueOf(),
+    [10500, -1500, 50],
+    [PALAZZO, BELLAGIO, AIRPORT],
+  ],
 ];
