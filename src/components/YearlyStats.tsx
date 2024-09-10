@@ -164,7 +164,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
         return acc;
       }, [] as any),
     },
-    animationDuration: dayTrips.length * 300,
+    animationDuration: dayTrips.length * 150,
     animationEasing: 'cubicInOut',
     series: [
       {
@@ -186,7 +186,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
             return '';
           },
           valueAnimation: true,
-          offset: [-80, 20],
+          offset: [-80, 30],
         },
         data,
         datasetId: 'trips',
