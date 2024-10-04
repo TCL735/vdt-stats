@@ -191,7 +191,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
               return "";
             },
             valueAnimation: true,
-            offset: [-80, 30],
+            offset: [-80, 15],
           },
           data,
           datasetId: "trips",
@@ -213,7 +213,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({
       <div className={`${heightClass} mt-5`}>
         <ReactECharts
           onChartReady={onChartReady}
-          option={{ ...option, series: [] }}
+          option={optionWithoutSeries}
           settings={{
             replaceMerge: ["series"],
           }}
