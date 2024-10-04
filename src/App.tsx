@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Tabs } from "@mantine/core";
-import { dayTrips2023, dayTrips2024, dayTripsAllTime } from "./data";
 import { YearlyStats } from "./components/YearlyStats";
 import {
   rowData2023,
@@ -51,10 +50,7 @@ export const App = () => {
         {activeTab === TABS.ALL_TIME && (
           <Tabs.Panel value={activeTab}>
             <StatsTableContext.Provider value={rowDataAllTime}>
-              <YearlyStats
-                dayTrips={dayTripsAllTime}
-                label="Vegas Daytripper's All Time Win/Loss"
-              />
+              <YearlyStats label="Vegas Daytripper's All Time Win/Loss" />
             </StatsTableContext.Provider>
           </Tabs.Panel>
         )}
@@ -62,20 +58,14 @@ export const App = () => {
         {activeTab === TABS._2024 && (
           <Tabs.Panel value={activeTab}>
             <StatsTableContext.Provider value={rowData2024}>
-              <YearlyStats
-                dayTrips={dayTrips2024}
-                label="Vegas Daytripper's 2024 Win/Loss"
-              />
+              <YearlyStats label="Vegas Daytripper's 2024 Win/Loss" />
             </StatsTableContext.Provider>
           </Tabs.Panel>
         )}
         {activeTab === TABS._2023 && (
           <Tabs.Panel value={activeTab}>
             <StatsTableContext.Provider value={rowData2023}>
-              <YearlyStats
-                dayTrips={dayTrips2023}
-                label="Vegas Daytripper's 2023 Win/Loss"
-              />
+              <YearlyStats label="Vegas Daytripper's 2023 Win/Loss" />
             </StatsTableContext.Provider>
           </Tabs.Panel>
         )}
