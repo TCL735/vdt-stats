@@ -1,4 +1,5 @@
-import dayjs from 'dayjs';
+import { createContext, useEffect, useState } from "react";
+import dayjs from "dayjs";
 import {
   ARIA,
   ARIA_AND_BELLAGIO,
@@ -18,15 +19,19 @@ import {
   MGM,
   MGM_GRAND,
   MIRAGE,
+  NEGATIVE_CURRENCY_TEXT_COLOR,
   PALAZZO,
   PARIS,
   PARK_MGM,
+  POSITIVE_CURRENCY_TEXT_COLOR,
   RESORTS_WORLD,
   TableRowDataType,
   VENETIAN,
   VP,
   WYNN,
-} from './types';
+  WindowDimensions,
+} from "./types";
+import { dayTrips2023, dayTrips2024, dayTripsAllTime } from "./data";
 
 export const getRewardsProgram = (location: string): string => {
   switch (location) {
@@ -45,20 +50,20 @@ export const getRewardsProgram = (location: string): string => {
     case VENETIAN:
     case PALAZZO:
     case VP:
-      return 'Venetian Rewards';
+      return "Venetian Rewards";
 
     case CIRCA_AND_D:
-      return 'One';
+      return "One";
 
     case RESORTS_WORLD:
-      return 'Genting';
+      return "Genting";
 
     case MIRAGE:
-      return 'Unity';
+      return "Unity";
 
     case ENCORE:
     case WYNN:
-      return 'Wynn';
+      return "Wynn";
 
     case PARIS:
     case CAESARS_PALACE:
@@ -66,10 +71,10 @@ export const getRewardsProgram = (location: string): string => {
       return CET;
 
     case FONTAINEBLEAU:
-      return 'Fontainebleau Rewards';
+      return "Fontainebleau Rewards";
 
     case DURANGO:
-      return 'Stations';
+      return "Stations";
 
     default:
       return location;
@@ -77,6 +82,7 @@ export const getRewardsProgram = (location: string): string => {
 };
 
 export interface TableRowsData {
+  dayTrips: DayTrip[];
   wholeTripColors: string[];
   locationColors: string[];
   tripNumbers: number[];
@@ -84,12 +90,13 @@ export interface TableRowsData {
   tripLocations: string[];
   tripPrograms: string[];
   tripResults: number[];
+  totalWinLoss: number;
 }
 
 export const createRowData = (
-  daytrips: DayTrip[],
-  positiveColor = 'black',
-  negativeColor = 'red'
+  dayTrips: DayTrip[],
+  positiveColor = "black",
+  negativeColor = "red",
 ): TableRowsData => {
   const wholeTripColors: string[] = [];
   const locationColors: string[] = [];
@@ -99,7 +106,7 @@ export const createRowData = (
   const tripPrograms: string[] = [];
   const tripResults: number[] = [];
 
-  daytrips.forEach((daytrip, index) => {
+  dayTrips.forEach((daytrip, index) => {
     const [dateValue, results, locations] = daytrip;
 
     const resultsTotal = results.reduce((total: number, result: number) => {
@@ -117,7 +124,13 @@ export const createRowData = (
     }
   });
 
+  const totalWinLoss = tripResults.reduce(
+    (total, amount) => (total += amount),
+    0,
+  );
+
   return {
+    dayTrips,
     wholeTripColors,
     locationColors,
     tripNumbers,
@@ -125,27 +138,109 @@ export const createRowData = (
     tripLocations,
     tripPrograms,
     tripResults,
+    totalWinLoss,
   };
 };
 
 export const dateFormatter = (d: TableRowDataType) => {
-  const result = dayjs(d).format('M/DD/YYYY');
-  if (result === 'Invalid Date') {
-    return '';
+  const result = dayjs(d).format("M/DD/YYYY");
+  if (result === "Invalid Date") {
+    return "";
   }
   return result;
 };
 
-export const currency = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
+export const currency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
 });
 
 export const currencyFormatter = (v: TableRowDataType): string => {
-  const f = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const f = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   });
   return f.format(v as number);
 };
+
+export const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    height,
+    width,
+  };
+};
+
+export const useWindowDimensions = (): WindowDimensions & {
+  heightClass: string;
+} => {
+  const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>(
+    getWindowDimensions(),
+  );
+  const [heightClass, setHeightClass] = useState<string>(
+    getHeightClass(windowDimensions.height),
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      const newDimensions = getWindowDimensions();
+      if (
+        newDimensions.height !== windowDimensions.height ||
+        newDimensions.width !== windowDimensions.width
+      ) {
+        setWindowDimensions(newDimensions);
+        setHeightClass(getHeightClass(newDimensions.height));
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return {
+    height: windowDimensions.height,
+    width: windowDimensions.width,
+    heightClass,
+  };
+};
+
+export const getHeightClass = (height: number): string => {
+  if (height >= 800) {
+    return "h-[710px]";
+  }
+  if (height >= 760) {
+    return "h-[670px]";
+  }
+  if (height >= 720) {
+    return "h-[630px]";
+  }
+  if (height >= 680) {
+    return "h-[590px]";
+  }
+  if (height >= 640) {
+    return "h-[550px]";
+  }
+  if (height >= 600) {
+    return "h-[510px]";
+  }
+  return "h-[470px]";
+};
+
+export const rowData2023 = createRowData(
+  dayTrips2023,
+  POSITIVE_CURRENCY_TEXT_COLOR,
+  NEGATIVE_CURRENCY_TEXT_COLOR,
+);
+export const rowData2024 = createRowData(
+  dayTrips2024,
+  POSITIVE_CURRENCY_TEXT_COLOR,
+  NEGATIVE_CURRENCY_TEXT_COLOR,
+);
+export const rowDataAllTime = createRowData(
+  dayTripsAllTime,
+  POSITIVE_CURRENCY_TEXT_COLOR,
+  NEGATIVE_CURRENCY_TEXT_COLOR,
+);
+
+export const StatsTableContext = createContext(rowData2023);
