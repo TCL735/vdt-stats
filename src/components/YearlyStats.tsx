@@ -1,30 +1,25 @@
-import React, { FC, useCallback, useMemo } from "react";
+import React, { FC, useCallback, useContext, useMemo } from "react";
 import dayjs from "dayjs";
 import { ECharts } from "echarts/core";
 import {
-  DayTrip,
   POSITIVE_CURRENCY_TEXT_COLOR,
   NEGATIVE_CURRENCY_TEXT_COLOR,
 } from "../types";
 import { EChartsOption, ReactECharts } from "../react-echarts";
 import { StatsTableCompact, StatsTableLarge } from "./Table";
-import { currency, useWindowDimensions } from "../utils";
+import { currency, StatsTableContext, useWindowDimensions } from "../utils";
 
 interface YearlyStatsProps {
   label: string;
-  yearStart?: string;
-  yearEnd?: string;
-  dayTrips: Array<DayTrip>;
 }
 
-export const YearlyStats: FC<YearlyStatsProps> = ({
-  dayTrips,
-  label,
-  yearStart = `${dayjs(dayTrips[0][0]).toISOString().slice(0, 10)}`,
-  yearEnd = `${dayjs(dayTrips[dayTrips.length - 1][0])
+export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
+  const { dayTrips } = useContext(StatsTableContext);
+  const yearStart = `${dayjs(dayTrips[0][0]).toISOString().slice(0, 10)}`;
+  const yearEnd = `${dayjs(dayTrips[dayTrips.length - 1][0])
     .toISOString()
-    .slice(0, 10)}`,
-}) => {
+    .slice(0, 10)}`;
+
   const { width, heightClass } = useWindowDimensions();
 
   const optionWithoutSeries = useMemo(
