@@ -9,7 +9,7 @@ import {
   currencyFormatter,
   dateFormatter,
   getRewardsProgram,
-  StatsTableContext,
+  StatsContext,
 } from "../utils";
 
 interface TableColumnProps {
@@ -110,7 +110,7 @@ export const TableContainer: FC<ComponentProps<"div">> = ({ children }) => {
 };
 
 export const StatsTableLarge: FC = () => {
-  const stats = useContext(StatsTableContext);
+  const stats = useContext(StatsContext);
 
   const {
     wholeTripColors,
@@ -190,7 +190,7 @@ const getSessionClassName = (sessions: number): string => {
   }
 };
 export const StatsTableCompact: FC = () => {
-  const state = useContext(StatsTableContext);
+  const state = useContext(StatsContext);
   const { dayTrips, totalWinLoss } = state;
 
   const sessionColors = dayTrips.map((dayTrip) => {

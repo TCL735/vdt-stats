@@ -5,7 +5,7 @@ import {
   rowData2023,
   rowData2024,
   rowDataAllTime,
-  StatsTableContext,
+  StatsContext,
 } from "./utils";
 import { SELECTED_BORDER_STYLE, TABS } from "./types";
 
@@ -49,24 +49,24 @@ export const App = () => {
 
         {activeTab === TABS.ALL_TIME && (
           <Tabs.Panel value={activeTab}>
-            <StatsTableContext.Provider value={rowDataAllTime}>
+            <StatsContext.Provider value={rowDataAllTime}>
               <YearlyStats label="Vegas Daytripper's All Time Win/Loss" />
-            </StatsTableContext.Provider>
+            </StatsContext.Provider>
           </Tabs.Panel>
         )}
 
         {activeTab === TABS._2024 && (
           <Tabs.Panel value={activeTab}>
-            <StatsTableContext.Provider value={rowData2024}>
+            <StatsContext.Provider value={rowData2024}>
               <YearlyStats label="Vegas Daytripper's 2024 Win/Loss" />
-            </StatsTableContext.Provider>
+            </StatsContext.Provider>
           </Tabs.Panel>
         )}
         {activeTab === TABS._2023 && (
           <Tabs.Panel value={activeTab}>
-            <StatsTableContext.Provider value={rowData2023}>
+            <StatsContext.Provider value={rowData2023}>
               <YearlyStats label="Vegas Daytripper's 2023 Win/Loss" />
-            </StatsTableContext.Provider>
+            </StatsContext.Provider>
           </Tabs.Panel>
         )}
       </Tabs>

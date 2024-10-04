@@ -7,14 +7,14 @@ import {
 } from "../types";
 import { EChartsOption, ReactECharts } from "../react-echarts";
 import { StatsTableCompact, StatsTableLarge } from "./Table";
-import { currency, StatsTableContext, useWindowDimensions } from "../utils";
+import { currency, StatsContext, useWindowDimensions } from "../utils";
 
 interface YearlyStatsProps {
   label: string;
 }
 
 export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
-  const { dayTrips } = useContext(StatsTableContext);
+  const { dayTrips } = useContext(StatsContext);
   const yearStart = `${dayjs(dayTrips[0][0]).toISOString().slice(0, 10)}`;
   const yearEnd = `${dayjs(dayTrips[dayTrips.length - 1][0])
     .toISOString()
@@ -186,7 +186,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
               return "";
             },
             valueAnimation: true,
-            offset: [-80, 15],
+            offset: [-85, 15],
           },
           data,
           datasetId: "trips",
