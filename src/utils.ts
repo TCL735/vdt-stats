@@ -243,4 +243,4 @@ export const rowDataAllTime = createRowData(
   NEGATIVE_CURRENCY_TEXT_COLOR,
 );
 
-export const StatsTableContext = createContext(rowData2023);
+export const StatsContext = createContext(rowData2023);
