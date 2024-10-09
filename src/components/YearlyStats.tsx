@@ -93,11 +93,16 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
           axisLabel: {
             rotate: 45,
             formatter: (date: number) => dayjs(date).format("MMM DD"),
+            hideOverlap: true,
           },
           axisLine: {
             lineStyle: {
               width: 2,
             },
+          },
+          axisTick: {
+            show: true,
+            length: 5,
           },
           min: () => dayjs(yearStart).subtract(1, "day").valueOf(),
           max: () => dayjs(yearEnd).add(1, "day").valueOf(),
@@ -111,7 +116,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
             formatter: (money: number) => currency.format(money),
           },
         },
-        animationDuration: dayTrips.length * 150,
+        animationDuration: dayTrips.length * 100,
         animationEasing: "cubicInOut",
         series: [],
       } as EChartsOption),
@@ -186,7 +191,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
               return "";
             },
             valueAnimation: true,
-            offset: [-85, 15],
+            offset: [-80, 35],
           },
           data,
           datasetId: "trips",

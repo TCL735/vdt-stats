@@ -236,6 +236,18 @@ export const dayTrips2024: Array<DayTrip> = [
   [dayjs("2024-09-23").valueOf(), [-12180, 15050], [BELLAGIO, VP]],
   [dayjs("2024-09-26").valueOf(), [-9640, -15], [FONTAINEBLEAU, AIRPORT]],
   [dayjs("2024-09-27").valueOf(), [-1025], [PALAZZO]],
+  [
+    dayjs("2024-10-02").valueOf(),
+    [-3500, 340, -8340],
+    [COSMO, MGM_GRAND, VENETIAN],
+  ],
+  [dayjs("2024-10-03").valueOf(), [-5000, -3280], [MGM_GRAND, BELLAGIO]],
+  [dayjs("2024-10-04").valueOf(), [1100], [VENETIAN]],
+  [
+    dayjs("2024-10-07").valueOf(),
+    [6400, 5450, -40],
+    [COSMO, BELLAGIO, AIRPORT],
+  ],
 ];
 
 export const dayTripsAllTime = dayTrips2023.concat(dayTrips2024);
