@@ -43,3 +43,9 @@ export const enum TABS {
   _2023 = "2023",
   ALL_TIME = "ALL TIME",
 }
+
+export const enum ROUTES {
+  STATS_2024 = "/stats/2024",
+  STATS_2023 = "/stats/2023",
+  STATS_ALL_TIME = "/stats/all-time",
+}

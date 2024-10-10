@@ -25,6 +25,8 @@ import {
   PARK_MGM,
   POSITIVE_CURRENCY_TEXT_COLOR,
   RESORTS_WORLD,
+  ROUTES,
+  TABS,
   TableRowDataType,
   VENETIAN,
   VP,
@@ -162,6 +164,19 @@ export const currencyFormatter = (v: TableRowDataType): string => {
     maximumFractionDigits: 0,
   });
   return f.format(v as number);
+};
+
+export const getTabFromLocation = (pathname: string): TABS => {
+  switch (pathname) {
+    case ROUTES.STATS_2024:
+      return TABS._2024;
+    case ROUTES.STATS_2023:
+      return TABS._2023;
+    case ROUTES.STATS_ALL_TIME:
+      return TABS.ALL_TIME;
+    default:
+      return TABS._2024;
+  }
 };
 
 export const getWindowDimensions = () => {
