@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useContext, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import dayjs from "dayjs";
 import { ECharts } from "echarts/core";
 import {
@@ -208,12 +209,15 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
     [width, option],
   );
 
+  const { pathname } = useLocation();
+
   return (
     <div className="mb-3 mx-3">
       <div className={`${heightClass} mt-5`}>
         <ReactECharts
           onChartReady={onChartReady}
           option={optionWithoutSeries}
+          pathname={pathname}
           settings={{
             replaceMerge: ["series"],
           }}

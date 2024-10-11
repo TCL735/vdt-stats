@@ -94,6 +94,7 @@ const getDefaultChartOption = (theme: "light" | "dark"): EChartsOption => ({
 
 export interface ReactEChartsProps {
   option: EChartsOption;
+  pathname?: string; // allows navigation to cause re-render
   style?: CSSProperties;
   settings?: SetOptionOpts;
   loading?: boolean;
@@ -111,6 +112,7 @@ export const ReactECharts = forwardRef<HTMLDivElement, ReactEChartsProps>(
   (
     {
       option: chartOption,
+      pathname,
       style,
       settings,
       loading,
@@ -142,7 +144,14 @@ export const ReactECharts = forwardRef<HTMLDivElement, ReactEChartsProps>(
       return () => {
         chart?.dispose();
       };
-    }, [container, customLayoutFunction, onChartReady, renderer, theme]);
+    }, [
+      container,
+      customLayoutFunction,
+      onChartReady,
+      pathname,
+      renderer,
+      theme,
+    ]);
 
     useEffect(() => {
       // Chart resize
