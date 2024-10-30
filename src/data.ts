@@ -253,6 +253,8 @@ export const dayTrips2024: Array<DayTrip> = [
   [dayjs("2024-10-14").valueOf(), [1750], [BELLAGIO]],
   [dayjs("2024-10-19").valueOf(), [-4600, -5000], [FONTAINEBLEAU, VENETIAN]],
   [dayjs("2024-10-21").valueOf(), [-10400, 2805], [BELLAGIO, VENETIAN]],
+  [dayjs("2024-10-24").valueOf(), [-10600], [VENETIAN]],
+  [dayjs("2024-10-28").valueOf(), [-7100, -10500], [MGM_GRAND, VENETIAN]],
 ];
 
 export const dayTripsAllTime = dayTrips2023.concat(dayTrips2024);
