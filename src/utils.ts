@@ -21,6 +21,7 @@ import {
   MIRAGE,
   NEGATIVE_CURRENCY_TEXT_COLOR,
   PALAZZO,
+  PALMS,
   PARIS,
   PARK_MGM,
   POSITIVE_CURRENCY_TEXT_COLOR,
@@ -53,6 +54,9 @@ export const getRewardsProgram = (location: string): string => {
     case PALAZZO:
     case VP:
       return "Venetian Rewards";
+
+    case PALMS:
+      return "Club Serrano";
 
     case CIRCA_AND_D:
       return "One";

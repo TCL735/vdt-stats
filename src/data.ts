@@ -25,6 +25,7 @@ import {
   WYNN,
   DayTrip,
   CAESARS_PALACE,
+  PALMS,
 } from "./types";
 
 export const dayTrips2023: Array<DayTrip> = [
@@ -256,6 +257,10 @@ export const dayTrips2024: Array<DayTrip> = [
   [dayjs("2024-10-24").valueOf(), [-10600], [VENETIAN]],
   [dayjs("2024-10-28").valueOf(), [-7100, -10500], [MGM_GRAND, VENETIAN]],
   [dayjs("2024-11-04").valueOf(), [12950, -1550], [ARIA, BELLAGIO]],
+  [dayjs("2024-11-15").valueOf(), [-15500], [VENETIAN]],
+  [dayjs("2024-11-16").valueOf(), [-9460, 6860], [VENETIAN, PALMS]],
+  [dayjs("2024-11-20").valueOf(), [-580, -4120], [BELLAGIO, COSMO]],
+  [dayjs("2024-12-09").valueOf(), [-1000, -4000], [PALMS, BELLAGIO]],
 ];
 
 export const dayTripsAllTime = dayTrips2023.concat(dayTrips2024);

@@ -27,6 +27,7 @@ export const MGM = "MGM";
 export const MGM_GRAND = "MGM Grand";
 export const MIRAGE = "Mirage";
 export const PALAZZO = "Palazzo";
+export const PALMS = " Palms";
 export const PARIS = "Paris";
 export const PARK_MGM = "Park MGM";
 export const RESORTS_WORLD = "Resorts World";
