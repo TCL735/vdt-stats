@@ -264,4 +264,10 @@ export const dayTrips2024: Array<DayTrip> = [
   [dayjs("2024-12-19").valueOf(), [4400], [VP]],
 ];
 
-export const dayTripsAllTime = dayTrips2023.concat(dayTrips2024);
+export const dayTrips2025: Array<DayTrip> = [
+  [dayjs("2025-01-02").valueOf(), [1026], [PALAZZO]],
+];
+
+export const dayTripsAllTime = dayTrips2023
+  .concat(dayTrips2024)
+  .concat(dayTrips2025);

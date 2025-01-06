@@ -13,6 +13,7 @@ import {
   getTabFromLocation,
   rowData2023,
   rowData2024,
+  rowData2025,
   rowDataAllTime,
   StatsContext,
 } from "./utils";
@@ -38,6 +39,18 @@ export const Navigation = () => {
               } text-black`}
             >
               {TABS.ALL_TIME}
+            </Tabs.Tab>
+          </Link>
+          <Link to={ROUTES.STATS_2025}>
+            <Tabs.Tab
+              value={TABS._2025}
+              className={`px-4 py-3 hover:text-blue-500 ${
+                activeTab === TABS._2025
+                  ? SELECTED_BORDER_STYLE
+                  : "border-black/100"
+              } text-black`}
+            >
+              {TABS._2025}
             </Tabs.Tab>
           </Link>
           <Link to={ROUTES.STATS_2024}>
@@ -84,6 +97,14 @@ export const App = () => {
             element={
               <StatsContext.Provider value={rowData2024}>
                 <YearlyStats label="Vegas Daytripper's 2024 Win/Loss" />
+              </StatsContext.Provider>
+            }
+          />
+          <Route
+            path={ROUTES.STATS_2025}
+            element={
+              <StatsContext.Provider value={rowData2025}>
+                <YearlyStats label="Vegas Daytripper's 2025 Win/Loss" />
               </StatsContext.Provider>
             }
           />

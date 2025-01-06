@@ -40,12 +40,14 @@ export const POSITIVE_CURRENCY_TEXT_COLOR = "text-black";
 export const SELECTED_BORDER_STYLE = "border-b-[0.2rem] border-black/100";
 
 export const enum TABS {
+  _2025 = "2025",
   _2024 = "2024",
   _2023 = "2023",
   ALL_TIME = "ALL TIME",
 }
 
 export const enum ROUTES {
+  STATS_2025 = "/stats/2025",
   STATS_2024 = "/stats/2024",
   STATS_2023 = "/stats/2023",
   STATS_ALL_TIME = "/stats/all-time",
