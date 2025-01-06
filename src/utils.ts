@@ -34,7 +34,12 @@ import {
   WYNN,
   WindowDimensions,
 } from "./types";
-import { dayTrips2023, dayTrips2024, dayTripsAllTime } from "./data";
+import {
+  dayTrips2023,
+  dayTrips2024,
+  dayTrips2025,
+  dayTripsAllTime,
+} from "./data";
 
 export const getRewardsProgram = (location: string): string => {
   switch (location) {
@@ -172,6 +177,8 @@ export const currencyFormatter = (v: TableRowDataType): string => {
 
 export const getTabFromLocation = (pathname: string): TABS => {
   switch (pathname) {
+    case ROUTES.STATS_2025:
+      return TABS._2025;
     case ROUTES.STATS_2024:
       return TABS._2024;
     case ROUTES.STATS_2023:
@@ -179,7 +186,7 @@ export const getTabFromLocation = (pathname: string): TABS => {
     case ROUTES.STATS_ALL_TIME:
       return TABS.ALL_TIME;
     default:
-      return TABS._2024;
+      return TABS._2025;
   }
 };
 
@@ -253,6 +260,11 @@ export const rowData2023 = createRowData(
 );
 export const rowData2024 = createRowData(
   dayTrips2024,
+  POSITIVE_CURRENCY_TEXT_COLOR,
+  NEGATIVE_CURRENCY_TEXT_COLOR,
+);
+export const rowData2025 = createRowData(
+  dayTrips2025,
   POSITIVE_CURRENCY_TEXT_COLOR,
   NEGATIVE_CURRENCY_TEXT_COLOR,
 );
