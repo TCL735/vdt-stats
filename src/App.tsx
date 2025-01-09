@@ -95,8 +95,8 @@ export const App = () => {
             path="/"
             index
             element={
-              <StatsContext.Provider value={rowData2024}>
-                <YearlyStats label="Vegas Daytripper's 2024 Win/Loss" />
+              <StatsContext.Provider value={rowData2025}>
+                <YearlyStats label="Vegas Daytripper's 2025 Win/Loss" />
               </StatsContext.Provider>
             }
           />
