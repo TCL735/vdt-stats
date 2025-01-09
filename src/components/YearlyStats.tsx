@@ -192,7 +192,7 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
               return "";
             },
             valueAnimation: true,
-            offset: [-80, 30],
+            offset: [-80, 20],
           },
           data,
           datasetId: "trips",

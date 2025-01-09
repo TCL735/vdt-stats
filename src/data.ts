@@ -262,6 +262,7 @@ export const dayTrips2024: Array<DayTrip> = [
   [dayjs("2024-11-20").valueOf(), [-580, -4120], [BELLAGIO, COSMO]],
   [dayjs("2024-12-09").valueOf(), [-1000, -4000], [PALMS, BELLAGIO]],
   [dayjs("2024-12-19").valueOf(), [4400], [VP]],
+  [dayjs("2024-12-26").valueOf(), [-7000, -15000], [FONTAINEBLEAU, PALAZZO]],
 ];
 
 export const dayTrips2025: Array<DayTrip> = [
