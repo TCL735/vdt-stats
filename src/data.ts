@@ -267,6 +267,7 @@ export const dayTrips2024: Array<DayTrip> = [
 
 export const dayTrips2025: Array<DayTrip> = [
   [dayjs("2025-01-02").valueOf(), [1026], [PALAZZO]],
+  [dayjs("2025-01-09").valueOf(), [7005], [VP]],
 ];
 
 export const dayTripsAllTime = dayTrips2023
