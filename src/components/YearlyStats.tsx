@@ -12,9 +12,13 @@ import { currency, StatsContext, useWindowDimensions } from "../utils";
 
 interface YearlyStatsProps {
   label: string;
+  endLabelOffset?: [number, number];
 }
 
-export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
+export const YearlyStats: FC<YearlyStatsProps> = ({
+  label,
+  endLabelOffset = [0, 0],
+}) => {
   const { dayTrips } = useContext(StatsContext);
   const yearStart = `${dayjs(dayTrips[0][0]).toISOString().slice(0, 10)}`;
   const yearEnd = `${dayjs(dayTrips[dayTrips.length - 1][0])
@@ -192,14 +196,14 @@ export const YearlyStats: FC<YearlyStatsProps> = ({ label }) => {
               return "";
             },
             valueAnimation: true,
-            offset: [-90, -10],
+            offset: endLabelOffset,
           },
           data,
           datasetId: "trips",
         },
       ],
     } as EChartsOption;
-  }, [optionWithoutSeries, dayTrips]);
+  }, [optionWithoutSeries, dayTrips, endLabelOffset]);
 
   const onChartReady = useCallback(
     (chart: ECharts) => {
