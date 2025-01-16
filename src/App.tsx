@@ -96,7 +96,10 @@ export const App = () => {
             index
             element={
               <StatsContext.Provider value={rowData2025}>
-                <YearlyStats label="Vegas Daytripper's 2025 Win/Loss" />
+                <YearlyStats
+                  label="Vegas Daytripper's 2025 Win/Loss"
+                  endLabelOffset={[-80, 10]}
+                />
               </StatsContext.Provider>
             }
           />
@@ -104,7 +107,10 @@ export const App = () => {
             path={ROUTES.STATS_2025}
             element={
               <StatsContext.Provider value={rowData2025}>
-                <YearlyStats label="Vegas Daytripper's 2025 Win/Loss" />
+                <YearlyStats
+                  label="Vegas Daytripper's 2025 Win/Loss"
+                  endLabelOffset={[-80, 10]}
+                />
               </StatsContext.Provider>
             }
           />
@@ -112,7 +118,10 @@ export const App = () => {
             path={ROUTES.STATS_2024}
             element={
               <StatsContext.Provider value={rowData2024}>
-                <YearlyStats label="Vegas Daytripper's 2024 Win/Loss" />
+                <YearlyStats
+                  label="Vegas Daytripper's 2024 Win/Loss"
+                  endLabelOffset={[-80, 20]}
+                />
               </StatsContext.Provider>
             }
           />
@@ -120,7 +129,10 @@ export const App = () => {
             path={ROUTES.STATS_2023}
             element={
               <StatsContext.Provider value={rowData2023}>
-                <YearlyStats label="Vegas Daytripper's 2023 Win/Loss" />
+                <YearlyStats
+                  label="Vegas Daytripper's 2023 Win/Loss"
+                  endLabelOffset={[-70, 20]}
+                />
               </StatsContext.Provider>
             }
           />
@@ -128,7 +140,10 @@ export const App = () => {
             path={ROUTES.STATS_ALL_TIME}
             element={
               <StatsContext.Provider value={rowDataAllTime}>
-                <YearlyStats label="Vegas Daytripper's All Time Win/Loss" />
+                <YearlyStats
+                  label="Vegas Daytripper's All Time Win/Loss"
+                  endLabelOffset={[-80, 30]}
+                />
               </StatsContext.Provider>
             }
           />
