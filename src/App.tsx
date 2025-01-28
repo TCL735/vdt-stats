@@ -98,7 +98,7 @@ export const App = () => {
               <StatsContext.Provider value={rowData2025}>
                 <YearlyStats
                   label="Vegas Daytripper's 2025 Win/Loss"
-                  endLabelOffset={[-80, 10]}
+                  endLabelOffset={[-65, -15]}
                 />
               </StatsContext.Provider>
             }
@@ -109,7 +109,7 @@ export const App = () => {
               <StatsContext.Provider value={rowData2025}>
                 <YearlyStats
                   label="Vegas Daytripper's 2025 Win/Loss"
-                  endLabelOffset={[-80, 10]}
+                  endLabelOffset={[-80, -20]}
                 />
               </StatsContext.Provider>
             }

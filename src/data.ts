@@ -281,6 +281,7 @@ export const dayTrips2025: Array<DayTrip> = [
     [1800, -1500, -7800, -200],
     [DURANGO, PALMS, BELLAGIO, AIRPORT],
   ],
+  [dayjs("2025-01-27").valueOf(), [2805, -245], [CAESARS_PALACE, ARIA]],
 ];
 
 export const dayTripsAllTime = dayTrips2023
