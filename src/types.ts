@@ -21,6 +21,7 @@ export const ENCORE = "Encore";
 export const EXCALIBUR = "Excalibur";
 export const FLAMINGO = "Flamingo";
 export const FONTAINEBLEAU = "Fontainebleau";
+export const GREEN_VALLEY_RANCH = "Green Valley Ranch";
 export const LUXOR = "Luxor";
 export const MANDALAY_BAY = "Mandalay Bay";
 export const MGM = "MGM";
