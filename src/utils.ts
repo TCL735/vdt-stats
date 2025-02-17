@@ -14,6 +14,7 @@ import {
   EXCALIBUR,
   FLAMINGO,
   FONTAINEBLEAU,
+  GREEN_VALLEY_RANCH,
   LUXOR,
   MANDALAY_BAY,
   MGM,
@@ -85,6 +86,7 @@ export const getRewardsProgram = (location: string): string => {
       return "Fontainebleau Rewards";
 
     case DURANGO:
+    case GREEN_VALLEY_RANCH:
       return "Stations";
 
     default:
