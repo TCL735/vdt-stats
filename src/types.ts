@@ -32,6 +32,7 @@ export const PALMS = " Palms";
 export const PARIS = "Paris";
 export const PARK_MGM = "Park MGM";
 export const RESORTS_WORLD = "Resorts World";
+export const STRAT = "The Strat";
 export const VENETIAN = "Venetian";
 export const VP = "Venetian / Palazzo";
 export const WYNN = "Wynn";

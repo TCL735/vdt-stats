@@ -28,6 +28,7 @@ import {
   PALMS,
   DURANGO,
   GREEN_VALLEY_RANCH,
+  STRAT,
 } from "./types";
 
 export const dayTrips2023: Array<DayTrip> = [
@@ -291,6 +292,11 @@ export const dayTrips2025: Array<DayTrip> = [
   ],
   [dayjs("2025-02-06").valueOf(), [-2400, -2580], [VENETIAN, BELLAGIO]],
   [dayjs("2025-02-12").valueOf(), [2860], [DURANGO]],
+  [
+    dayjs("2025-02-17").valueOf(),
+    [4670, -1000, 1450, -50],
+    [WYNN, PALAZZO, STRAT, AIRPORT],
+  ],
 ];
 
 export const dayTripsAllTime = dayTrips2023

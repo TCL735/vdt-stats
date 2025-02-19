@@ -28,6 +28,7 @@ import {
   POSITIVE_CURRENCY_TEXT_COLOR,
   RESORTS_WORLD,
   ROUTES,
+  STRAT,
   TABS,
   TableRowDataType,
   VENETIAN,
@@ -75,7 +76,7 @@ export const getRewardsProgram = (location: string): string => {
 
     case ENCORE:
     case WYNN:
-      return "Wynn";
+      return "Wynn Rewards";
 
     case PARIS:
     case CAESARS_PALACE:
@@ -88,6 +89,9 @@ export const getRewardsProgram = (location: string): string => {
     case DURANGO:
     case GREEN_VALLEY_RANCH:
       return "Stations";
+
+    case STRAT:
+      return "True Rewards";
 
     default:
       return location;
