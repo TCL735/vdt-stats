@@ -297,6 +297,11 @@ export const dayTrips2025: Array<DayTrip> = [
     [4670, -1000, 1450, -50],
     [WYNN, PALAZZO, STRAT, AIRPORT],
   ],
+  [
+    dayjs("2025-02-21").valueOf(),
+    [-800, -4200, 0],
+    [BELLAGIO, CAESARS_PALACE, VENETIAN],
+  ],
 ];
 
 export const dayTripsAllTime = dayTrips2023
