@@ -86,6 +86,7 @@ export const Navigation = () => {
   );
 };
 
+const endLabelOffset: [number, number] = [-65, 15];
 export const App = () => {
   return (
     <HashRouter>
@@ -98,7 +99,7 @@ export const App = () => {
               <StatsContext.Provider value={rowData2025}>
                 <YearlyStats
                   label="Vegas Daytripper's 2025 Win/Loss"
-                  endLabelOffset={[-65, -15]}
+                  endLabelOffset={endLabelOffset}
                 />
               </StatsContext.Provider>
             }
@@ -109,7 +110,7 @@ export const App = () => {
               <StatsContext.Provider value={rowData2025}>
                 <YearlyStats
                   label="Vegas Daytripper's 2025 Win/Loss"
-                  endLabelOffset={[-80, -20]}
+                  endLabelOffset={endLabelOffset}
                 />
               </StatsContext.Provider>
             }
