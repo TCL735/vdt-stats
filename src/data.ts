@@ -304,6 +304,7 @@ export const dayTrips2025: Array<DayTrip> = [
   ],
   [dayjs("2025-03-03").valueOf(), [1245], [VENETIAN]],
   [dayjs("2025-03-12").valueOf(), [-3000, 1800], [PALAZZO, WYNN]],
+  [dayjs("2025-03-17").valueOf(), [12825, -30], [ARIA, AIRPORT]],
 ];
 
 export const dayTripsAllTime = dayTrips2023
