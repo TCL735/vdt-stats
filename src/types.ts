@@ -7,6 +7,7 @@ export type WindowDimensions = {
 };
 
 export const AIRPORT = "Airport";
+export const ALIANTE = "Aliante";
 export const ARIA = "Aria";
 export const ARIA_AND_BELLAGIO = "Aria & Bellagio";
 export const BELLAGIO = "Bellagio";
