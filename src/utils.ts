@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import {
+  ALIANTE,
   ARIA,
   ARIA_AND_BELLAGIO,
   BELLAGIO,
@@ -92,6 +93,9 @@ export const getRewardsProgram = (location: string): string => {
 
     case STRAT:
       return "True Rewards";
+
+    case ALIANTE:
+      return "Boyd Rewards";
 
     default:
       return location;
