@@ -30,6 +30,9 @@ import {
   GREEN_VALLEY_RANCH,
   STRAT,
   ALIANTE,
+  RIO,
+  EL_CORTEZ,
+  PLAZA,
 } from "./types";
 
 export const dayTrips2023: Array<DayTrip> = [
@@ -309,6 +312,13 @@ export const dayTrips2025: Array<DayTrip> = [
   [dayjs("2025-03-20").valueOf(), [1820], [VENETIAN]],
   [dayjs("2025-03-28").valueOf(), [-14430], [VENETIAN]],
   [dayjs("2025-03-31").valueOf(), [-13400, -1200], [VENETIAN, ALIANTE]],
+  [dayjs("2025-04-08").valueOf(), [-2000], [RIO]],
+  [dayjs("2025-04-09").valueOf(), [-670, 2235], [RIO, PALMS]],
+  [
+    dayjs("2025-04-14").valueOf(),
+    [1105, -1000, -1120],
+    [FONTAINEBLEAU, PLAZA, EL_CORTEZ],
+  ],
 ];
 
 export const dayTripsAllTime = dayTrips2023

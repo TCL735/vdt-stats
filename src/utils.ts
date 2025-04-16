@@ -11,6 +11,7 @@ import {
   COSMO,
   DURANGO,
   DayTrip,
+  EL_CORTEZ,
   ENCORE,
   EXCALIBUR,
   FLAMINGO,
@@ -26,8 +27,10 @@ import {
   PALMS,
   PARIS,
   PARK_MGM,
+  PLAZA,
   POSITIVE_CURRENCY_TEXT_COLOR,
   RESORTS_WORLD,
+  RIO,
   ROUTES,
   STRAT,
   TABS,
@@ -96,6 +99,15 @@ export const getRewardsProgram = (location: string): string => {
 
     case ALIANTE:
       return "Boyd Rewards";
+
+    case RIO:
+      return "Rio Rewards";
+
+    case PLAZA:
+      return "Plaza Rewards";
+
+    case EL_CORTEZ:
+      return "Club Cortez";
 
     default:
       return location;
