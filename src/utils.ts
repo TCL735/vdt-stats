@@ -9,6 +9,7 @@ import {
   CET,
   CIRCA_AND_D,
   COSMO,
+  CROMWELL,
   DURANGO,
   DayTrip,
   EL_CORTEZ,
@@ -16,12 +17,16 @@ import {
   EXCALIBUR,
   FLAMINGO,
   FONTAINEBLEAU,
+  FOUR_QUEENS,
+  GOLDEN_NUGGET,
   GREEN_VALLEY_RANCH,
+  HARRAHS,
   LUXOR,
   MANDALAY_BAY,
   MGM,
   MGM_GRAND,
   MIRAGE,
+  M_RESORT,
   NEGATIVE_CURRENCY_TEXT_COLOR,
   PALAZZO,
   PALMS,
@@ -82,9 +87,11 @@ export const getRewardsProgram = (location: string): string => {
     case WYNN:
       return "Wynn Rewards";
 
-    case PARIS:
     case CAESARS_PALACE:
+    case CROMWELL:
     case FLAMINGO:
+    case HARRAHS:
+    case PARIS:
       return CET;
 
     case FONTAINEBLEAU:
@@ -108,6 +115,15 @@ export const getRewardsProgram = (location: string): string => {
 
     case EL_CORTEZ:
       return "Club Cortez";
+
+    case FOUR_QUEENS:
+      return "All Access Players Club";
+
+    case GOLDEN_NUGGET:
+      return "24K Select Club";
+
+    case M_RESORT:
+      return "Penn Play";
 
     default:
       return location;
