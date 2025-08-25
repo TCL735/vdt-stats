@@ -86,7 +86,7 @@ export const Navigation = () => {
   );
 };
 
-const endLabelOffset: [number, number] = [-70, 30];
+const endLabelOffset: [number, number] = [-80, -15];
 export const App = () => {
   return (
     <HashRouter>
