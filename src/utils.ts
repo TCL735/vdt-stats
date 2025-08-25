@@ -5,7 +5,9 @@ import {
   ARIA,
   ARIA_AND_BELLAGIO,
   BELLAGIO,
+  BELLAGIO_AND_COSMO,
   CAESARS_PALACE,
+  CAESARS_PROPERTIES,
   CET,
   CIRCA_AND_D,
   COSMO,
@@ -57,6 +59,7 @@ export const getRewardsProgram = (location: string): string => {
     case ARIA:
     case ARIA_AND_BELLAGIO:
     case BELLAGIO:
+    case BELLAGIO_AND_COSMO:
     case COSMO:
     case EXCALIBUR:
     case LUXOR:
@@ -88,6 +91,7 @@ export const getRewardsProgram = (location: string): string => {
       return "Wynn Rewards";
 
     case CAESARS_PALACE:
+    case CAESARS_PROPERTIES:
     case CROMWELL:
     case FLAMINGO:
     case HARRAHS:

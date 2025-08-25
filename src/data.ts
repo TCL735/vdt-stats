@@ -6,7 +6,9 @@ import {
   ARIA,
   ARIA_AND_BELLAGIO,
   BELLAGIO,
+  BELLAGIO_AND_COSMO,
   CAESARS_PALACE,
+  CAESARS_PROPERTIES,
   CASINO_ROYALE,
   CET,
   CIRCA_AND_D,
@@ -368,6 +370,19 @@ export const dayTrips2025: Array<DayTrip> = [
     [-8200, 2800, 10050, -525, -65],
     [VENETIAN, HARRAHS, CROMWELL, CAESARS_PALACE, AIRPORT],
   ],
+  [dayjs("2025-08-13").valueOf(), [-15000, -3000], [VENETIAN, STRAT]],
+  [
+    dayjs("2025-08-14").valueOf(),
+    [-9800, -1200],
+    [CAESARS_PROPERTIES, AIRPORT],
+  ],
+  [
+    dayjs("2025-08-15").valueOf(),
+    [-2000, 11600, 14300],
+    [PALMS, VENETIAN, BELLAGIO_AND_COSMO],
+  ],
+  [dayjs("2025-08-19").valueOf(), [-6690], [VENETIAN]],
+  [dayjs("2025-08-20").valueOf(), [17910], [VENETIAN]],
 ];
 
 export const dayTripsAllTime = dayTrips2023
