@@ -29,6 +29,7 @@ export const FOUR_QUEENS = "Four Queens";
 export const GOLDEN_NUGGET = "Golden Nugget";
 export const GREEN_VALLEY_RANCH = "Green Valley Ranch";
 export const HARRAHS = "Harrah's";
+export const HARRAHS_AND_FLAMINGO = "Harrah's & Flamingo";
 export const LUXOR = "Luxor";
 export const MANDALAY_BAY = "Mandalay Bay";
 export const MGM = "MGM";

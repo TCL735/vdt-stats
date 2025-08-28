@@ -24,6 +24,7 @@ import {
   GOLDEN_NUGGET,
   GREEN_VALLEY_RANCH,
   HARRAHS,
+  HARRAHS_AND_FLAMINGO,
   LUXOR,
   MANDALAY_BAY,
   MGM,
@@ -383,6 +384,11 @@ export const dayTrips2025: Array<DayTrip> = [
   ],
   [dayjs("2025-08-19").valueOf(), [-6690], [VENETIAN]],
   [dayjs("2025-08-20").valueOf(), [17910], [VENETIAN]],
+  [
+    dayjs("2025-08-26").valueOf(),
+    [10535, 2865],
+    [VENETIAN, HARRAHS_AND_FLAMINGO],
+  ],
 ];
 
 export const dayTripsAllTime = dayTrips2023

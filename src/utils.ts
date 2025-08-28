@@ -23,6 +23,7 @@ import {
   GOLDEN_NUGGET,
   GREEN_VALLEY_RANCH,
   HARRAHS,
+  HARRAHS_AND_FLAMINGO,
   LUXOR,
   MANDALAY_BAY,
   MGM,
@@ -95,6 +96,8 @@ export const getRewardsProgram = (location: string): string => {
     case CROMWELL:
     case FLAMINGO:
     case HARRAHS:
+    case HARRAHS_AND_FLAMINGO:
+      return "Caesars Rewards";
     case PARIS:
       return CET;
 
