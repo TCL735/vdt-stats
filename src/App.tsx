@@ -143,7 +143,7 @@ export const App = () => {
               <StatsContext.Provider value={rowDataAllTime}>
                 <YearlyStats
                   label="Vegas Daytripper's All Time Win/Loss"
-                  endLabelOffset={[-80, 30]}
+                  endLabelOffset={[-90, -15]}
                 />
               </StatsContext.Provider>
             }
